@@ -1,0 +1,103 @@
+/// Mixin to prefix a property
+/// @param {Map} $declarations - Declarations to prefix
+/// @param {List} $prefixes (()) - List of prefixes to print
+
+@mixin prefixProp($declarations, $prefixes: ()) {
+    @each $property, $value in $declarations {
+        @each $prefix in $prefixes {
+            #{'-' + $prefix + '-' + $property}: $value;
+        }
+
+        #{$property}: $value;
+    }
+}
+
+/// Mixin to prefix a value
+/// @param {Map} $declarations - Declarations to prefix
+/// @param {List} $prefixes (()) - List of prefixes to print
+
+@mixin prefixValue($declarations, $prefixes: ()) {
+    @each $property, $value in $declarations {
+        @each $prefix in $prefixes {
+            #{$property}: '-' + $prefix + '-' + $value;
+        }
+
+        #{$property}: $value;
+    }
+}
+
+/// Mixin to prefix keyframes
+
+@mixin keyframes($name) {
+    @-webkit-keyframes #{$name} {
+        @content;
+    }
+    @-moz-keyframes #{$name} {
+        @content;
+    }
+    @-o-keyframes #{$name} {
+        @content;
+    }
+    @keyframes #{$name} {
+        @content;
+    }
+}
+
+/// Mixin for target circles
+
+@mixin innerCircle($index, $position, $area) {
+    .inner#{$index} {
+        position: absolute;
+        top: $position;
+        left: $position;
+        width: $area;
+        height: $area;
+    }
+}
+
+/// Mixin for arrows
+
+@mixin arrow($side, $oppSide, $animationName)  {
+    &.#{$side} {
+        @include prefixProp((
+            animation-name: $animationName,
+            animation-duration: 1s,
+            animation-timing-function: ease-out,
+            animation-fill-mode: forwards), webkit moz o);
+
+        &:after {
+            border-bottom: 15px solid;
+            border-#{$side}: 15px solid transparent;
+            border-top: 15px solid;
+            #{$side}: -14px;
+        }
+
+        &:before {
+            border-bottom: 25px solid transparent;
+            border-#{$side}: 30px solid;
+            border-top: 25px solid transparent;
+            #{$oppSide}: -25px;
+            top: -9px;
+        }
+    }
+}
+
+/// Mixin for skill arrows styles & position
+
+@mixin skillArrow($side, $color, $topPos, $leftPos, $animationDelay) {
+    background-color: $color;
+    top: $topPos;
+    left: $leftPos;
+    @include prefixProp((animation-delay: $animationDelay), webkit moz o);
+    
+    &.#{$side} {
+        &:after {
+            border-bottom-color: $color;
+            border-top-color: $color;
+        }
+        
+        &:before {
+            border-#{$side}-color: $color;
+        }
+    }
+}
