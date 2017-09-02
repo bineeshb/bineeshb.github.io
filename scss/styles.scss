@@ -31,20 +31,16 @@ body {
     color: #ecf0f1;
 }
 
+#contact {
+    overflow: hidden;
+}
+
 #home {
     background-color: #1976d2;
 }
 
-#skills {
-    background-color: #2e7d32;
-}
-
-#experience {
-    background-color: #00897b;
-}
-
-#contact {
-    background-color: #512DA8;
+#skills, #experience, #contact {
+  background-color: #f1f1f1;
 }
 
 
@@ -79,12 +75,6 @@ h3 {
     text-transform: uppercase;
 }
 
-h1,
-h2,
-h3 {
-    font-weight: 700;
-}
-
 ul {
     margin-bottom: 10px;
 }
@@ -103,7 +93,6 @@ li {
       color: #fff;
       text-decoration: none;
       padding: 20px;
-      /*text-transform: uppercase;*/
       font-weight: 700;
     }
 }
@@ -121,8 +110,12 @@ li {
  */
 
 .hero {
-    padding: 20px 0 20px 10px;
-    line-height: 44px;
+    font-size: 40px;
+    padding-bottom: 20px;
+}
+
+#home .container {
+	text-align: center;
 }
 
 #home .tagline {
@@ -147,7 +140,7 @@ li {
 }
 
 .circle {
-    border: 2px solid white;
+    border: 2px solid #3b3b3b;
     border-radius: 50%;
 }
 
@@ -166,7 +159,7 @@ li {
 .level_text {
     text-transform: uppercase;
     text-align: center;
-    color: white;
+    color: #3b3b3b;
     padding-top: 20px;
 }
 
@@ -250,7 +243,7 @@ li {
 }
 
 .skill_angular {
-    @include skillArrow(left, #f00, 0, 9%, 5s);
+    @include skillArrow(left, #dd0031, 0, 9%, 5s);
 }
 
 /*
@@ -259,75 +252,46 @@ li {
 
 
 .experience {
-  position: relative;
-  width: 100%;
-}
+	width: 32%;
+	float: left;
+	padding-right: 15px;
+	color: #3b3b3b;
+    
 
-.timeline, .profile {
-  display: inline-block;
-}
+    &:last-child {
+        padding-right: 0;
+    }
 
-.timeline {
-  width: 15%;
-  border-right: 3px solid #FFFFFF;
-  text-align: right;
-  p {
-    padding: 10px;
-  }
-}
+    .organisation {
+        text-transform: uppercase;
+        color: #1976d2;
+        margin-bottom: 3px;
+        width: 95%;
+    }
 
-.profile {
-  width: 75%;
-  height: 97%;
-  background-color: rgba(128, 203, 196, 0.1);
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-}
+    .duration {
+        font-style: italic;
+        margin-bottom: 10px;
+        padding-bottom: 5px;
+        border-bottom: 1px solid #dbdbdb;
+    }
 
-.experience:last-child .profile {
-  border: none;
-}
+    .profile {
+        .role {
+            text-transform: uppercase;
+            font-weight: 700;
+            margin-top: 10px;
+        }
 
-.details {
-  width: 100%;
-  padding: 10px 0 10px 20px;
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-}
+        .description {
+            font-style: italic;
+            padding-left: 7px;
 
-.time, .organisation {
-  text-transform: uppercase;
-}
-
-.time:after {
-  content: "";
-  width: 0;
-  height: 0;
-  position: absolute;
-  border: 5px solid transparent;
-  border-right: 5px solid #FFFFFF;
-  margin-top: 4px;
-}
-
-.role {
-  display: inline-block;
-  width: 75%;
-  font-weight: 700;
-  font-size: 18px;
-}
-
-.duration, .description {
-  font-size: 15px;
-}
-
-.duration {
-  font-style: italic;
-}
-
-.organisation {
-  font-weight: 600;
+            &::before {
+                content: "- ";
+            }
+        }
+    }
 }
 
 /*
@@ -342,6 +306,28 @@ li {
     text-decoration: none;
     text-transform: uppercase;
     font-weight: 700;
+
+    .fa {
+        display: block;
+        margin-top: 70px;
+        font-size: 50px;
+    }
+
+    .fa-linkedin-square {
+        color: #0077b5;
+    }
+
+    .fa-envelope {
+        color: #ea4335;
+    }
+
+    .fa-github {
+        color: #333;
+    }
+
+    .fa-facebook-official {
+        color: #3b5998;
+    }
 }
 
 .card {
@@ -352,8 +338,8 @@ li {
     display: inline-block;
     visibility: hidden;
     @include prefixProp((
-        border-radius: 5%,
-        box-shadow: -5px 5px 5px rgba(0, 0, 0, 0.7),
+        border-radius: 5px,
+        box-shadow: (0 6px 6px rgba(10,16,20,.15), 0 0 52px rgba(10,16,20,.12)),
         animation-duration: 1s,
         animation-name: slideup,
         animation-fill-mode: forwards), webkit moz o);
