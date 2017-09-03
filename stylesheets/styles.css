@@ -136,8 +136,11 @@ li {
 .navigation a {
   color: #fff;
   text-decoration: none;
-  padding: 20px;
+  padding: 22px 20px;
   font-weight: 700;
+}
+.navigation a.active {
+  background-color: #1976d2;
 }
 
 .tagline {
@@ -145,6 +148,13 @@ li {
   margin: 22px 0;
   font-style: italic;
   font-weight: 600;
+}
+
+.pg-title {
+  color: #3b3b3b;
+  margin-bottom: 100px;
+  font-size: 60px;
+  font-style: italic;
 }
 
 /*
@@ -297,7 +307,7 @@ li {
   }
 }
 .arrow {
-  color: #FFFFFF;
+  color: #fff;
   display: block;
   height: 30px;
   line-height: 30px;
@@ -551,6 +561,23 @@ li {
   border-left-color: #dd0031;
 }
 
+.skill_bootstrap {
+  background-color: #673AB7;
+  top: 50%;
+  left: 81%;
+  -webkit-animation-delay: 5.5s;
+  -moz-animation-delay: 5.5s;
+  -o-animation-delay: 5.5s;
+  animation-delay: 5.5s;
+}
+.skill_bootstrap.right:after {
+  border-bottom-color: #673AB7;
+  border-top-color: #673AB7;
+}
+.skill_bootstrap.right:before {
+  border-right-color: #673AB7;
+}
+
 /*
  * Experience
  */
@@ -591,35 +618,24 @@ li {
 /*
  * Contact
  */
+.contact-email {
+  color: #3b3b3b;
+  text-align: center;
+  margin-top: 35px;
+  font-size: 20px;
+}
+.contact-email .fa-envelope {
+  color: #ea4335;
+  font-size: 30px;
+  margin-right: 5px;
+}
+
 .cards {
   text-align: center;
 }
 
-.card a {
-  text-decoration: none;
-  text-transform: uppercase;
-  font-weight: 700;
-}
-.card a .fa {
-  display: block;
-  margin-top: 70px;
-  font-size: 50px;
-}
-.card a .fa-linkedin-square {
-  color: #0077b5;
-}
-.card a .fa-envelope {
-  color: #ea4335;
-}
-.card a .fa-github {
-  color: #333;
-}
-.card a .fa-facebook-official {
-  color: #3b5998;
-}
-
 .card {
-  background: white;
+  background: #fff;
   width: 120px;
   height: 200px;
   margin: 1px;
@@ -724,6 +740,26 @@ li {
   -ms-animation-delay: 1.5s;
   -o-animation-delay: 1.5s;
   animation-delay: 1.5s;
+}
+
+a.card {
+  text-decoration: none;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+a.card .fa {
+  display: block;
+  margin-top: 70px;
+  font-size: 50px;
+}
+a.card .fa-linkedin-square {
+  color: #0077b5;
+}
+a.card .fa-github {
+  color: #333;
+}
+a.card .fa-facebook-official {
+  color: #3b5998;
 }
 
 /*# sourceMappingURL=styles.css.map */

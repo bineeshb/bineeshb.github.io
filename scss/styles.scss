@@ -36,11 +36,11 @@ body {
 }
 
 #home {
-    background-color: #1976d2;
+    background-color: $color-primary;
 }
 
 #skills, #experience, #contact {
-  background-color: #f1f1f1;
+  background-color: $color-section-bg;
 }
 
 
@@ -49,7 +49,7 @@ body {
  */
 
 header {
-    background-color: #2c3e50;
+    background-color: $color-nav-bg;
     position: fixed;
     width: 100%;
     z-index: 9999;
@@ -90,10 +90,14 @@ li {
     text-align: center;
     
     a {
-      color: #fff;
-      text-decoration: none;
-      padding: 20px;
-      font-weight: 700;
+        color: $color-nav-link;
+        text-decoration: none;
+        padding: 22px 20px;
+        font-weight: 700;
+        
+        &.active {
+            background-color: $color-primary;
+        }
     }
 }
 
@@ -102,6 +106,13 @@ li {
     margin: 22px 0;
     font-style: italic;
     font-weight: 600;
+}
+
+.pg-title {
+    color: $color-pg-title;
+    margin-bottom: 100px;
+    font-size: 60px;
+    font-style: italic;
 }
 
 
@@ -140,7 +151,7 @@ li {
 }
 
 .circle {
-    border: 2px solid #3b3b3b;
+    border: 2px solid $color-target;
     border-radius: 50%;
 }
 
@@ -159,7 +170,7 @@ li {
 .level_text {
     text-transform: uppercase;
     text-align: center;
-    color: #3b3b3b;
+    color: $color-target;
     padding-top: 20px;
 }
 
@@ -182,7 +193,7 @@ li {
 }
 
 .arrow {
-    color: #FFFFFF;
+    color: $color-skill-text;
     display: block;
     height: 30px;
     line-height: 30px;
@@ -206,44 +217,48 @@ li {
 }
 
 .skill_html {
-    @include skillArrow(right, #FF5722, 5%, 80%, 0.5s);
+    @include skillArrow(right, $color-skillbg-html, 5%, 80%, 0.5s);
 }
 
 .skill_css {
-    @include skillArrow(right, #2196F3, 20%, 93%, 1s);
+    @include skillArrow(right, $color-skillbg-css, 20%, 93%, 1s);
 }
 
 .skill_js {
-    color: #000000;
-    @include skillArrow(left, #FFC107, -15%, -12%, 1.5s);
+    color: $color-skill-js;
+    @include skillArrow(left, $color-skillbg-js, -15%, -12%, 1.5s);
 }
 
 .skill_jq {
-    @include skillArrow(left, #0769ad, -5%, -27%, 2s);
+    @include skillArrow(left, $color-skillbg-jq, -5%, -27%, 2s);
 }
 
 .skill_rivet {
-    @include skillArrow(left, #3F51B5, 7%, -30%, 3.5s);
+    @include skillArrow(left, $color-skillbg-rivet, 7%, -30%, 3.5s);
 }
 
 .skill_underscore {
-    @include skillArrow(left, #009688, 18%, -20%, 2.5s);
+    @include skillArrow(left, $color-skillbg-underscore, 18%, -20%, 2.5s);
 }
 
 .skill_backbone {
-    @include skillArrow(left, #795548, 0, 1%, 4s);
+    @include skillArrow(left, $color-skillbg-backbone, 0, 1%, 4s);
 }
 
 .skill_photoshop {
-    @include skillArrow(right, #673AB7, -7%, 70%, 4.5s);
+    @include skillArrow(right, $color-skillbg-photoshop, -7%, 70%, 4.5s);
 }
 
 .skill_scss {
-    @include skillArrow(right, #F06292, 40%, 92%, 1.5s);
+    @include skillArrow(right, $color-skillbg-scss, 40%, 92%, 1.5s);
 }
 
 .skill_angular {
-    @include skillArrow(left, #dd0031, 0, 9%, 5s);
+    @include skillArrow(left, $color-skillbg-angular, 0, 9%, 5s);
+}
+
+.skill_bootstrap {
+    @include skillArrow(right, $color-skillbg-photoshop, 50%, 81%, 5.5s);
 }
 
 /*
@@ -255,7 +270,7 @@ li {
 	width: 32%;
 	float: left;
 	padding-right: 15px;
-	color: #3b3b3b;
+	color: $color-exp-txt;
     
 
     &:last-child {
@@ -264,7 +279,7 @@ li {
 
     .organisation {
         text-transform: uppercase;
-        color: #1976d2;
+        color: $color-exp-org;
         margin-bottom: 3px;
         width: 95%;
     }
@@ -273,7 +288,7 @@ li {
         font-style: italic;
         margin-bottom: 10px;
         padding-bottom: 5px;
-        border-bottom: 1px solid #dbdbdb;
+        border-bottom: 1px solid $color-exp-dur;
     }
 
     .profile {
@@ -298,40 +313,25 @@ li {
  * Contact
  */
 
+.contact-email {
+    color: $color-secondary;
+    text-align: center;
+    margin-top: 35px;
+    font-size: 20px;
+
+    .fa-envelope {
+        color: $color-mail;
+        font-size: 30px;
+        margin-right: 5px;
+    }
+}
+
 .cards {
     text-align: center;
 }
 
-.card a {
-    text-decoration: none;
-    text-transform: uppercase;
-    font-weight: 700;
-
-    .fa {
-        display: block;
-        margin-top: 70px;
-        font-size: 50px;
-    }
-
-    .fa-linkedin-square {
-        color: #0077b5;
-    }
-
-    .fa-envelope {
-        color: #ea4335;
-    }
-
-    .fa-github {
-        color: #333;
-    }
-
-    .fa-facebook-official {
-        color: #3b5998;
-    }
-}
-
 .card {
-    background: white;
+    background: $color-card-bg;
     width: 120px;
     height: 200px;
     margin: 1px;
@@ -383,4 +383,28 @@ li {
     @include prefixProp((
         transform: rotate(10deg),
         animation-delay: 1.5s), webkit moz ms o);
+}
+
+a.card {
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: 700;
+
+    .fa {
+        display: block;
+        margin-top: 70px;
+        font-size: 50px;
+    }
+
+    .fa-linkedin-square {
+        color: $color-linkedin;
+    }
+
+    .fa-github {
+        color: $color-github;
+    }
+
+    .fa-facebook-official {
+        color: $color-facebook;
+    }
 }
