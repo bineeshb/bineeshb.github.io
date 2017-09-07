@@ -60,9 +60,9 @@ body {
  * Grid
  */
 .container {
-  width: 960px;
+  width: 100%;
   margin: 0 auto;
-  padding: 20px 30px;
+  padding: 20px 0;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -74,7 +74,7 @@ body {
 #experience,
 #contact {
   padding-top: 70px;
-  min-height: 750px;
+  min-height: 680px;
   position: relative;
   color: #ecf0f1;
 }
@@ -91,6 +91,11 @@ body {
   background-color: #f1f1f1;
 }
 
+@media (min-width: 992px) {
+  .container {
+    width: 960px;
+  }
+}
 /*
  * Header
  */
@@ -130,13 +135,13 @@ li {
 .navigation {
   width: 100%;
   margin: 0 auto;
-  padding: 20px 30px;
+  padding: 20px 0;
   text-align: center;
 }
 .navigation a {
   color: #fff;
   text-decoration: none;
-  padding: 22px 20px;
+  padding: 21.5px 20px;
   font-weight: 700;
 }
 .navigation a.active {
@@ -189,6 +194,7 @@ li {
   margin-left: auto;
   margin-right: auto;
   font-weight: 700;
+  overflow: hidden;
 }
 
 .circle {
