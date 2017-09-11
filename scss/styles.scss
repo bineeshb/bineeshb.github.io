@@ -73,7 +73,11 @@ h1 {
 }
 
 h2 {
-    font-size: 22px;
+    font-size: 18px;
+    
+    @media(min-width: 480px) {
+        font-size: 22px;
+    }
 }
 
 h3 {
@@ -98,11 +102,15 @@ li {
     a {
         color: $color-nav-link;
         text-decoration: none;
-        padding: 21.5px 20px;
+        padding: 22px 12px;
         font-weight: 700;
         
         &.active {
             background-color: $color-primary;
+        }
+    
+        @media(min-width: 480px) {
+            padding: 22px 20px;
         }
     }
 }
@@ -116,9 +124,21 @@ li {
 
 .pg-title {
     color: $color-pg-title;
-    margin-bottom: 100px;
-    font-size: 60px;
+    margin-bottom: 40px;
+    font-size: 30px;
     font-style: italic;
+    text-align: center;
+    line-height: 1;
+    
+    @media(min-width: 480px) {
+        font-size: 50px;
+    }
+    
+    @media(min-width: 992px) {
+        font-size: 60px;
+        text-align: left;
+        margin-bottom: 100px;
+    }
 }
 
 
@@ -127,8 +147,17 @@ li {
  */
 
 .hero {
-    font-size: 40px;
+    font-size: 30px;
     padding-bottom: 20px;
+    line-height: 1;
+    
+    @media(min-width: 480px) {
+        font-size: 35px;
+    }
+    
+    @media(min-width: 768px) {
+        font-size: 40px;
+    }
 }
 
 #home .container {
@@ -274,14 +303,16 @@ li {
 
 
 .experience {
-	width: 32%;
-	float: left;
-	padding-right: 15px;
 	color: $color-exp-txt;
-    
+    margin-left: 30px;
+    margin-right: 15px;
 
     &:last-child {
         padding-right: 0;
+    }
+    
+    & + & {
+        margin-top: 40px;
     }
 
     .organisation {
@@ -314,92 +345,67 @@ li {
             }
         }
     }
+    
+    @media(min-width: 992px) {
+        width: 32%;
+        float: left;
+        padding-right: 15px;
+        margin: 0;
+    
+        & + & {
+            margin-top: 0;
+        }
+    }
 }
 
 /*
  * Contact
  */
 
-.contact-email {
+.contact-email, .link-text {
     color: $color-secondary;
     text-align: center;
     margin-top: 35px;
     font-size: 20px;
-
-    .fa-envelope {
-        color: $color-mail;
-        font-size: 30px;
-        margin-right: 5px;
+    
+    @media(min-width: 480px) {
+        font-size: 20px;
     }
+}
+
+.link-text {
+	color: $color-primary;
+	text-decoration: underline;
+	margin-left: 5px;
+    
+    @media(min-width: 768px) {
+        display: none;
+    }
+}
+
+.contact-email .fa-envelope {
+    color: $color-mail;
+    font-size: 30px;
+    margin-right: 10px;
 }
 
 .cards {
     text-align: center;
+    
+    a {
+        margin-top: 35px;
+    }
+}
+
+.cards a .fa, .cards a .link-text, .contact-email .fa-envelope, .contact-email span {
+	vertical-align: middle;
 }
 
 .card {
-    background: $color-card-bg;
-    width: 120px;
-    height: 200px;
-    margin: 1px;
-    display: inline-block;
-    visibility: hidden;
-    @include prefixProp((
-        border-radius: 5px,
-        box-shadow: (0 6px 6px rgba(10,16,20,.15), 0 0 52px rgba(10,16,20,.12)),
-        animation-duration: 1s,
-        animation-name: slideup,
-        animation-fill-mode: forwards), webkit moz o);
-
-    &:hover {
-        top: -20px;
-    }
-}
-
-@include keyframes(slideup) {
-    from {
-        top: 900px;
-    }
-    to {
-        visibility: visible;
-    }
-}
-
-.card_1 {
-    position: relative;
-    top: 10px;
-    left: 15px;
-    z-index: 9;
-    @include prefixProp((
-        transform: rotate(-10deg),
-        animation-delay: 0.5s), webkit moz ms o);
-}
-
-.card_2 {
-    position: relative;
-    z-index: 99;
-    top: 0px;
-    @include prefixProp((animation-delay: 1s), webkit moz o);
-}
-
-.card_3 {
-    position: relative;
-    top: 10px;
-    left: -15px;
-    z-index: 999;
-    @include prefixProp((
-        transform: rotate(10deg),
-        animation-delay: 1.5s), webkit moz ms o);
-}
-
-a.card {
     text-decoration: none;
-    text-transform: uppercase;
-    font-weight: 700;
+    display: block;
 
     .fa {
-        display: block;
-        margin-top: 70px;
         font-size: 50px;
     }
 
@@ -413,5 +419,68 @@ a.card {
 
     .fa-facebook-official {
         color: $color-facebook;
+    }
+}
+
+@media(min-width: 768px) {
+    .card {
+        display: inline-block;
+        background: $color-card-bg;
+        width: 120px;
+        height: 200px;
+        margin: 1px;
+        display: inline-block;
+        visibility: hidden;
+        @include prefixProp((
+            border-radius: 5px,
+            box-shadow: (0 6px 6px rgba(10,16,20,.15), 0 0 52px rgba(10,16,20,.12)),
+            animation-duration: 1s,
+            animation-name: slideup,
+            animation-fill-mode: forwards), webkit moz o);
+
+        &:hover {
+            top: -20px;
+        }
+        
+        .fa {
+            display: block;
+            margin-top: 70px;
+        }
+    }
+
+    @include keyframes(slideup) {
+        from {
+            top: 900px;
+        }
+        to {
+            visibility: visible;
+        }
+    }
+
+    .card_1 {
+        position: relative;
+        top: 10px;
+        left: 15px;
+        z-index: 9;
+        @include prefixProp((
+            transform: rotate(-10deg),
+            animation-delay: 0.5s), webkit moz ms o);
+    }
+
+    .card_2 {
+        position: relative;
+        z-index: 99;
+        top: 0px;
+        @include prefixProp((animation-delay: 1s), webkit moz o);
+    }
+
+    .card_3 {
+        position: relative;
+        top: 10px;
+        left: -15px;
+        z-index: 999;
+        @include prefixProp((
+            transform: rotate(10deg),
+            animation-delay: 1.5s), webkit moz ms o);
     }
 }
