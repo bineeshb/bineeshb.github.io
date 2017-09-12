@@ -52,6 +52,7 @@
         left: $position;
         width: $area;
         height: $area;
+		z-index: $index;
     }
 }
 
@@ -86,18 +87,21 @@
 
 @mixin skillArrow($side, $color, $topPos, $leftPos, $animationDelay) {
     background-color: $color;
-    top: $topPos;
-    left: $leftPos;
-    @include prefixProp((animation-delay: $animationDelay), webkit moz o);
-    
-    &.#{$side} {
-        &:after {
-            border-bottom-color: $color;
-            border-top-color: $color;
-        }
-        
-        &:before {
-            border-#{$side}-color: $color;
-        }
-    }
+
+	@media(min-width: 768px) {
+		top: $topPos;
+		left: $leftPos;
+		@include prefixProp((animation-delay: $animationDelay), webkit moz o);
+		
+		&.#{$side} {
+			&:after {
+				border-bottom-color: $color;
+				border-top-color: $color;
+			}
+			
+			&:before {
+				border-#{$side}-color: $color;
+			}
+		}
+	}
 }

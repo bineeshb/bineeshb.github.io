@@ -1,7 +1,12 @@
 $("body").ready(function () {
+	var linksId = [];
+	
+	$('nav a').each(function() {
+		linksId.push($(this).attr("href"));
+	});
+	
     $(function () {
         $('a[href*="#"]:not([href="#"])').click(function () {
-            $("header a.active").removeClass("active");
             if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
                 var target = $(this.hash);
                 target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
@@ -9,36 +14,45 @@ $("body").ready(function () {
                     $('html, body').animate({
                         scrollTop: target.offset().top
                     }, 1000);
-                    $(this).addClass("active");
                     return false;
                 }
             }
         });
     });
 
-    var $animation_elements = $('.animation_elements');
+    var $animationElements = $('.animation_elements');
     var $window = $(window);
 
-    function check_if_in_view() {
-        var window_height = $window.height();
-        var window_top_position = $window.scrollTop();
-        var window_bottom_position = (window_top_position + window_height);
+    function checkIfInView() {
+        var windowHeight = $window.height();
+        var windowTopPos = $window.scrollTop();
+        var windowBottomPos = (windowTopPos + windowHeight);
+		
+		$.each(linksId, function(index, theID) {
+			var sectionPos = $(theID).offset().top;
+			var sectionHeight = $(theID).height();
+			if(windowTopPos >= sectionPos && windowTopPos < (sectionPos + sectionHeight)) {
+				$("nav a[href='" + theID + "']").addClass("active");
+			} else {
+				$("nav a[href='" + theID + "']").removeClass("active");
+			}
+		});
 
-        $.each($animation_elements, function () {
+        $.each($animationElements, function() {
             var $element = $(this);
 
             if ($element.hasClass('animation_elements')) {
-                var element_height = $element.outerHeight();
-                var element_top_position = $element.offset().top;
-                var element_bottom_position = (element_top_position + element_height);
+                var elementHeight = $element.outerHeight();
+                var elementTopPos = $element.offset().top;
+                var elemBottomPos = (elementTopPos + elementHeight);
 
-                if ((element_bottom_position >= window_top_position) && (element_top_position <= window_bottom_position)) {
+                if ((elemBottomPos >= windowTopPos) && (elementTopPos <= windowBottomPos)) {
                     $element.removeClass('animation_elements');
                 }
             }
         });
     }
 
-    $window.on('scroll resize', check_if_in_view);
+    $window.on('scroll resize', checkIfInView);
     $window.trigger('scroll');
 });

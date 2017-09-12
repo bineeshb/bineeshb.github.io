@@ -6,6 +6,10 @@ body {
     font: 400 16px/22px Roboto, "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
+html, body {
+	height: 100%;
+}
+
 
 /*
  * Grid
@@ -15,38 +19,50 @@ body {
     width: 100%;
     margin: 0 auto;
     padding: 20px 0;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+
+	@media (min-width: 768px) {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+	}
+
+	@media(min-width: 992px) {
+		width: 960px;
+	}
 }
 
 #home,
 #skills,
 #experience,
 #contact {
-    padding-top: 70px;
-    min-height: 680px;
+    padding-top: 60px;
     position: relative;
+	height: auto!important;
+	min-height: 100%;
     color: #ecf0f1;
 }
 
 #contact {
     overflow: hidden;
+	z-index: 1;
+}
+
+#experience {
+	z-index: 2;
+}
+
+#skills {
+	z-index: 3;
 }
 
 #home {
     background-color: $color-primary;
+	z-index: 4;
 }
 
-#skills, #experience, #contact {
+#skills, #experience, #contact, footer {
   background-color: $color-section-bg;
-}
-
-@media(min-width: 992px) {
-    .container {
-        width: 960px;
-    }
 }
 
 
@@ -59,6 +75,17 @@ header {
     position: fixed;
     width: 100%;
     z-index: 9999;
+}
+
+
+/*
+ * Footer
+ */
+
+footer p {
+	text-align: center;
+	color: $color-secondary;
+	padding-bottom: 10px;
 }
 
 
@@ -115,13 +142,6 @@ li {
     }
 }
 
-.tagline {
-    text-align: right;
-    margin: 22px 0;
-    font-style: italic;
-    font-weight: 600;
-}
-
 .pg-title {
     color: $color-pg-title;
     margin-bottom: 40px;
@@ -162,11 +182,18 @@ li {
 
 #home .container {
 	text-align: center;
-}
 
-#home .tagline {
-    border-top: 4px solid #fff;
-    padding-top: 20px;
+	@media(max-width: 767px) {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+
+		h1, h2 {
+		  margin-left: 10px;
+		  margin-right: 10px;
+		}
+	}
 }
 
 .animation_elements * {
@@ -180,76 +207,124 @@ li {
 
 .target {
     position: relative;
-    margin-left: auto;
-    margin-right: auto;
+    margin-left: 30px;
+    margin-right: 30px;
     font-weight: 700;
     overflow: hidden;
+
+	@media(max-width: 767px) {
+		hr {
+			margin: 0;
+			margin-bottom: -2px;
+		}
+	}
+
+	@media(min-width: 768px) {
+		margin-left: auto;
+		margin-right: auto;
+
+		hr {
+			display: none;
+		}
+	}
+}
+
+.level_text {
+	text-transform: uppercase;
+	text-align: center;
+  
+	@media(max-width: 767px) {
+		padding-top: 10px;
+		padding-bottom: 10px;
+		background-color: $color-secondary;
+		color: $color-level-text;
+		margin: 0 auto;
+		margin-bottom: 10px;
+		width: 40%;
+		border-bottom-left-radius: 10px;
+		border-bottom-right-radius: 10px;
+	}
+    
+    @media(min-width: 768px) {
+        padding-top: 20px;
+        color: #3b3b3b;
+    }
 }
 
 .circle {
-    border: 2px solid $color-target;
-    border-radius: 50%;
-}
-
-.outer {
-    position: relative;
-    width: 600px;
-    height: 600px;
-    margin: 0 auto;
-}
-
-@include innerCircle(1, 10%, 80%);
-@include innerCircle(2, 20%, 60%);
-@include innerCircle(3, 30%, 40%);
-@include innerCircle(4, 40%, 20%);
-
-.level_text {
-    text-transform: uppercase;
-    text-align: center;
-    color: $color-target;
-    padding-top: 20px;
-}
-
-@include keyframes(slideleft) {
-    from {
-        margin-left: 100%;
-    }
-    to {
-        visibility: visible;
-    }
-}
-
-@include keyframes(slideright) {
-    from {
-        margin-left: -100%;
-    }
-    to {
-        visibility: visible;
-    }
+	@media(max-width: 767px) {
+		min-height: 100px;
+		margin-bottom: 10px;
+	}
+	@media(min-width: 768px) {
+		border: 2px solid $color-target;
+		border-radius: 50%;
+	}
 }
 
 .arrow {
-    color: $color-skill-text;
-    display: block;
-    height: 30px;
-    line-height: 30px;
-    padding: 0 12px;
-    position: relative;
-    width: 110px;
-    text-align: center;
-    @include prefixProp((box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.4)), webkit moz o);
-    visibility: hidden;
+	color: $color-skill-text;
+	display: inline-block;
+	height: 30px;
+	line-height: 30px;
+	padding: 0 12px;
+	text-align: center;
 
-    &:before,
-    &:after {
-        content: "";
-        height: 0;
-        position: absolute;
-        width: 0;
-    }
-    
-    @include arrow(right, left, slideleft);
-    @include arrow(left, right, slideright);
+	@media(max-width: 767px) {
+		margin: 5px;
+		border-radius: 2px;
+	}
+}
+
+@media(min-width: 768px) {
+	.outer {
+		position: relative;
+		width: 600px;
+		height: 600px;
+		margin: 0 auto;
+	}
+
+	@include innerCircle(1, 10%, 80%);
+	@include innerCircle(2, 20%, 60%);
+	@include innerCircle(3, 30%, 40%);
+	@include innerCircle(4, 40%, 20%);
+
+	@include keyframes(slideleft) {
+		from {
+			margin-left: 100%;
+		}
+		to {
+			visibility: visible;
+		}
+	}
+
+	@include keyframes(slideright) {
+		from {
+			margin-left: -100%;
+		}
+		to {
+			visibility: visible;
+		}
+	}
+
+	.arrow {
+		display: block;
+		position: relative;
+		width: 110px;
+		@include prefixProp((box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.4)), webkit moz o);
+		visibility: hidden;
+
+		&:before,
+		&:after {
+			content: "";
+			height: 0;
+			position: absolute;
+			width: 0;
+		}
+		
+		@include arrow(right, left, slideleft);
+		@include arrow(left, right, slideright);
+	}
 }
 
 .skill_html {
@@ -297,10 +372,10 @@ li {
     @include skillArrow(right, $color-skillbg-photoshop, 50%, 81%, 5.5s);
 }
 
+
 /*
  * Experience
  */
-
 
 .experience {
 	color: $color-exp-txt;
@@ -358,6 +433,7 @@ li {
     }
 }
 
+
 /*
  * Contact
  */
@@ -406,10 +482,10 @@ li {
     display: block;
 
     .fa {
-        font-size: 50px;
+        font-size: 45px;
     }
 
-    .fa-linkedin-square {
+    .fa-linkedin {
         color: $color-linkedin;
     }
 
@@ -417,7 +493,7 @@ li {
         color: $color-github;
     }
 
-    .fa-facebook-official {
+    .fa-facebook {
         color: $color-facebook;
     }
 }
@@ -444,6 +520,7 @@ li {
         
         .fa {
             display: block;
+			font-size: 50px;
             margin-top: 70px;
         }
     }
