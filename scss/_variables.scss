@@ -4,12 +4,14 @@ $color-section-bg: #f1f1f1;
 $color-nav-bg: #2c3e50;
 $color-nav-link: #fff;
 $color-pg-title: $color-secondary;
+$color-pg-bg: #ecf0f1;
 
 //
 //  Skills
 //
 $color-target: $color-secondary;
 $color-level-text: #fff;
+$color-level-text-lg: #3b3b3b;
 $color-skill-text: #fff;
 $color-skillbg-html: #FF5722;
 $color-skillbg-css: #2196F3;
@@ -29,6 +31,8 @@ $color-skillbg-angular: #dd0031;
 $color-exp-txt: $color-secondary;
 $color-exp-org: $color-primary;
 $color-exp-dur: #dbdbdb;
+$color-exp-block-bg: #fff;
+$color-exp-block-shadow: #e3e3e3;
 
 //
 //  Contact
@@ -38,3 +42,5 @@ $color-linkedin: #0077b5;
 $color-facebook: #3b5998;
 $color-github: #333;
 $color-mail: #ea4335;
+
+$num-of-contact-cards: 3;

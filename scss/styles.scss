@@ -40,7 +40,7 @@ html, body {
     position: relative;
 	height: auto!important;
 	min-height: 100%;
-    color: #ecf0f1;
+    color: $color-pg-bg;
 }
 
 #contact {
@@ -247,7 +247,7 @@ li {
     
     @media(min-width: 768px) {
         padding-top: 20px;
-        color: #3b3b3b;
+        color: $color-level-text-lg;
     }
 }
 
@@ -388,8 +388,8 @@ li {
 .experience {
 	color: $color-exp-txt;
     padding: 15px;
-    background-color: #ffffff;
-    box-shadow: 3px 3px 6px #e3e3e3;
+    background-color: $color-exp-block-bg;
+    box-shadow: 3px 3px 6px $color-exp-block-shadow;
     
     .organisation {
         text-transform: uppercase;
@@ -538,31 +538,19 @@ li {
             visibility: visible;
         }
     }
-
-    .card_1 {
-        position: relative;
-        top: 10px;
-        left: 15px;
-        z-index: 9;
-        @include prefixProp((
-            transform: rotate(-10deg),
-            animation-delay: 0.5s), webkit moz ms o);
-    }
-
-    .card_2 {
-        position: relative;
-        z-index: 99;
-        top: 0px;
-        @include prefixProp((animation-delay: 1s), webkit moz o);
-    }
-
-    .card_3 {
-        position: relative;
-        top: 10px;
-        left: -15px;
-        z-index: 999;
-        @include prefixProp((
-            transform: rotate(10deg),
-            animation-delay: 1.5s), webkit moz ms o);
+    
+    $card-center-pos: floor($num-of-contact-cards/2) + 1;
+    
+    @for $index from 1 through $num-of-contact-cards {
+        $value: $index - $card-center-pos;
+        .card_#{$index} {
+            position: relative;
+            top: $value * $value * 10px;
+            left: $value * -15px;
+            z-index: $index * 9;
+            @include prefixProp((
+                transform: rotate($value * 10deg),
+                animation-delay: $index * 0.5s), webkit moz ms o);
+        }
     }
 }
