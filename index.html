@@ -6,10 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bineesh's Portfolio</title>
     <link href="https://fonts.googleapis.com/css?family=Roboto:400,400i,700" rel="stylesheet">
-	<link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="stylesheets/styles.css">
-    <script src="scripts/libs/jquery-3.1.1.min.js"></script>
-    <script src="scripts/logic.js"></script>
 </head>
 
 <body>
@@ -34,38 +32,44 @@
     <!-- Skills -->
     <section id="skills" class="skills-page">
         <div class="container">
-            <div class="target animation_elements">
-                <div class="circle outer">
-                    <div class="circle inner4">
-						<hr>
-                        <p class="level_text">Master</p>
+            <div class="target animation_elements skills-container">
+                <script id="skills-template" type="text/x-handlebars-template">
+                    <div class="circle outer">
+                        <div class="circle inner4">
+                            <hr>
+                            <p class="level_text">Master</p>
+                            {{#each master}}
+                            <p class="arrow {{position}} {{styleClass}}">{{skill}}</p>
+                            {{/each}}
+                        </div>
+                        <div class="circle inner3">
+                            <hr>
+                            <p class="level_text">Expert</p>
+                            {{#each expert}}
+                            <p class="arrow {{position}} {{styleClass}}">{{skill}}</p>
+                            {{/each}}
+                        </div>
+                        <div class="circle inner2">
+                            <hr>
+                            <p class="level_text">Proficient</p>
+                            {{#each proficient}}
+                            <p class="arrow {{position}} {{styleClass}}">{{skill}}</p>
+                            {{/each}}
+                        </div>
+                        <div class="circle inner1">
+                            <hr>
+                            <p class="level_text">Familiar</p>
+                            {{#each familiar}}
+                            <p class="arrow {{position}} {{styleClass}}">{{skill}}</p>
+                            {{/each}}
+                        </div>
+                        <hr>
+                        <p class="level_text">Beginner</p>
+                        {{#each beginner}}
+                        <p class="arrow {{position}} {{styleClass}}">{{skill}}</p>
+                        {{/each}}
                     </div>
-                    <div class="circle inner3">
-						<hr>
-                        <p class="level_text">Expert</p>
-                    </div>
-                    <div class="circle inner2">
-						<hr>
-                        <p class="level_text">Proficient</p>
-                        <p class="arrow right skill_html">HTML</p>
-                        <p class="arrow right skill_css">CSS</p>
-                        <p class="arrow left skill_js">JavaScript</p>
-                        <p class="arrow left skill_jq">jQuery</p>
-                        <p class="arrow left skill_rivet">Rivets.js</p>
-                        <p class="arrow left skill_underscore">Underscore.js</p>
-                    </div>
-                    <div class="circle inner1">
-						<hr>
-                        <p class="level_text">Familiar</p>
-                        <p class="arrow left skill_backbone">Backbone.js</p>
-                        <p class="arrow right skill_photoshop">Photoshop</p>
-                        <p class="arrow right skill_scss">SCSS</p>
-                        <p class="arrow right skill_bootstrap">BootStrap</p>
-                    </div>
-					<hr>
-                    <p class="level_text">Beginner</p>
-                    <p class="arrow left skill_angular">Angular 2</p>
-                </div>
+                </script>
             </div>
         </div>
     </section>
@@ -75,36 +79,22 @@
         <div class="container">
             <h1 class="pg-title">learned & worked in&hellip;</h1>
             <div class="experience-container">
-                <div class="experience">
-                    <h4 class="duration">Sep 2007 - May 2011</h4>
-                    <h2 class="organisation">R.M.K Engineering College</h2>
-                    <h4 class="location">Gummudipondi</h4>
-                    <div class="profile">
-                        <p class="role">Under Graduate</p>
-                        <p class="description">Electrical and Electronics Engineering</p>
+                <script id="experience-template" type="text/x-handlebars-template">
+                    {{#each this}}
+                    <div class="experience">
+                        <h4 class="duration">{{from}} - {{to}}</h4>
+                        <h2 class="organisation">{{organisation}}</h2>
+                        <h4 class="location">{{location}}</h4>
+                        <div class="profile">
+                            {{#each profile}}
+                            <p class="role">{{role}}</p>
+                            {{#each description}}
+                            <p class="description">{{this}}</p>
+                            {{/each}} {{/each}}
+                        </div>
                     </div>
-                </div>
-                <div class="experience">
-                    <h4 class="duration">Sep 2011 - Dec 2016</h4>
-                    <h2 class="organisation">Tata Consultancy Services</h2>
-                    <h4 class="location">Chennai</h4>
-                    <div class="profile">
-                        <p class="role">Web Developer</p>
-                        <p class="description">For a Banking client</p>
-                        <p class="role">Production Support Executive</p>
-                        <p class="description">For a Telecom client</p>
-                    </div>
-                </div>
-                <div class="experience">
-                    <h4 class="duration">Dec 2016 - Present</h4>
-                    <h2 class="organisation">Cognizant Technology Solutions</h2>
-                    <h4 class="location">Chennai</h4>
-                    <div class="profile">
-                        <p class="role">Senior Developer</p>
-                        <p class="description">For a Pharmaceutical client</p>
-                        <p class="description">For a Logistics client</p>
-                    </div>
-                </div>
+                    {{/each}}
+                </script>
             </div>
         </div>
     </section>
@@ -114,27 +104,30 @@
         <div class="container">
             <h1 class="pg-title">other networks&hellip;</h1>
             <div class="cards animation_elements">
-                <a href="https://in.linkedin.com/in/bineesh-balasubramanian-5b9223b5" target="_blank" class="card card_1">
-				    <i class="fa fa-linkedin" aria-hidden="true"></i>
-					<span class="link-text">/bineesh-balasubramanian</span>
-				</a>
-                <a href="https://www.facebook.com/bineesh.balasubramanian" target="_blank" class="card card_2">
-					<i class="fa fa-facebook" aria-hidden="true"></i>
-					<span class="link-text">/bineesh.balasubramanian</span>
-				</a>
-                <a href="https://github.com/bineeshb" target="_blank" class="card card_3">
-					<i class="fa fa-github" aria-hidden="true"></i>
-					<span class="link-text">/bineeshb</span>
-				</a>
+                <script id="contact-template" type="text/x-handlebars-template">
+                    {{#each this}}
+                    <a href="{{link}}" target="_blank" class="card card_{{counter @index}}">
+                        <i class="fa {{iconClass}}" aria-hidden="true"></i>
+                        <span class="link-text">{{displayText}}</span>
+                    </a>
+                    {{/each}}
+                </script>
             </div>
-            <p class="contact-email"><i class="fa fa-envelope" aria-hidden="true"></i><span>bineesh2107@gmail.com</span></p>
+            <p class="contact-email"><i class="fa fa-envelope" aria-hidden="true"></i><span>bineesh2107@gmail.com</span>
+            </p>
         </div>
     </section>
-	
-	<!-- Footer -->
-	<footer>
-		<p>&copy; 2017 Bineesh Balasubramanian</p>
-	</footer>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2017 Bineesh Balasubramanian</p>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="scripts/libs/jquery-3.1.1.min.js"></script>
+    <script src="scripts/libs/handlebars-v4.0.11.js"></script>
+    <script src="scripts/details.js"></script>
+    <script src="scripts/logic.js"></script>
 </body>
 
 </html>

@@ -1,12 +1,36 @@
-$("body").ready(function () {
-	var linksId = [];
-	
-	$('nav a').each(function() {
-		linksId.push($(this).attr("href"));
-	});
-	
-    $(function () {
-        $('a[href*="#"]:not([href="#"])').click(function () {
+/** Handlebars Helpers */
+Handlebars.registerHelper("counter", function(index) {
+    return index + 1;
+});
+
+$("body").ready(function() {
+
+    /** Render Skills */
+    var $skillsSection = $("#skills .skills-container");
+    var $skillsTemplate = $("#skills-template").html();
+    var compiledSkills = Handlebars.compile($skillsTemplate);
+    $skillsSection.html(compiledSkills(skills));
+
+    /** Render Experience details */
+    var $experienceSection = $("#experience .experience-container");
+    var $experienceTemplate = $("#experience-template").html();
+    var compiledExpDetails = Handlebars.compile($experienceTemplate);
+    $experienceSection.html(compiledExpDetails(experienceDetails));
+
+    /** Render Contact details */
+    var $contactSection = $("#contact .cards");
+    var $contactTemplate = $("#contact-template").html();
+    var compiledContactDetails = Handlebars.compile($contactTemplate);
+    $contactSection.html(compiledContactDetails(contactDetails));
+
+    var linksId = [];
+
+    $('nav a').each(function() {
+        linksId.push($(this).attr("href"));
+    });
+
+    $(function() {
+        $('a[href*="#"]:not([href="#"])').click(function() {
             if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
                 var target = $(this.hash);
                 target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
@@ -27,16 +51,16 @@ $("body").ready(function () {
         var windowHeight = $window.height();
         var windowTopPos = $window.scrollTop();
         var windowBottomPos = (windowTopPos + windowHeight);
-		
-		$.each(linksId, function(index, theID) {
-			var sectionPos = $(theID).offset().top;
-			var sectionHeight = $(theID).height();
-			if(windowTopPos >= sectionPos && windowTopPos < (sectionPos + sectionHeight)) {
-				$("nav a[href='" + theID + "']").addClass("active");
-			} else {
-				$("nav a[href='" + theID + "']").removeClass("active");
-			}
-		});
+
+        $.each(linksId, function(index, theID) {
+            var sectionPos = $(theID).offset().top;
+            var sectionHeight = $(theID).height();
+            if (windowTopPos >= sectionPos && windowTopPos < (sectionPos + sectionHeight)) {
+                $("nav a[href='" + theID + "']").addClass("active");
+            } else {
+                $("nav a[href='" + theID + "']").removeClass("active");
+            }
+        });
 
         $.each($animationElements, function() {
             var $element = $(this);
