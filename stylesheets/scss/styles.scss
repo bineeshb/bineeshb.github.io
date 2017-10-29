@@ -6,8 +6,9 @@ body {
     font: 400 16px/22px Roboto, "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
-html, body {
-	height: 100%;
+html,
+body {
+    height: 100%;
 }
 
 
@@ -20,16 +21,16 @@ html, body {
     margin: 0 auto;
     padding: 20px 0;
 
-	@media (min-width: 768px) {
-		position: absolute;
-		top: 50%;
-		left: 50%;
-		transform: translate(-50%, -50%);
-	}
+    @media (min-width: 768px) {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
 
-	@media(min-width: 992px) {
-		width: 960px;
-	}
+    @media(min-width: 992px) {
+        width: 960px;
+    }
 }
 
 #home,
@@ -38,31 +39,34 @@ html, body {
 #contact {
     padding-top: 60px;
     position: relative;
-	height: auto!important;
-	min-height: 100%;
+    height: auto!important;
+    min-height: 100%;
     color: $color-pg-bg;
 }
 
 #contact {
     overflow: hidden;
-	z-index: 1;
+    z-index: 1;
 }
 
 #experience {
-	z-index: 2;
+    z-index: 2;
 }
 
 #skills {
-	z-index: 3;
+    z-index: 3;
 }
 
 #home {
     background-color: $color-primary;
-	z-index: 4;
+    z-index: 4;
 }
 
-#skills, #experience, #contact, footer {
-  background-color: $color-section-bg;
+#skills,
+#experience,
+#contact,
+footer {
+    background-color: $color-section-bg;
 }
 
 
@@ -83,9 +87,9 @@ header {
  */
 
 footer p {
-	text-align: center;
-	color: $color-secondary;
-	padding-bottom: 10px;
+    text-align: center;
+    color: $color-secondary;
+    padding-bottom: 10px;
 }
 
 
@@ -101,7 +105,7 @@ h1 {
 
 h2 {
     font-size: 18px;
-    
+
     @media(min-width: 480px) {
         font-size: 22px;
     }
@@ -125,17 +129,17 @@ li {
     margin: 0 auto;
     padding: 20px 0;
     text-align: center;
-    
+
     a {
         color: $color-nav-link;
         text-decoration: none;
         padding: 22px 12px;
         font-weight: 700;
-        
+
         &.active {
             background-color: $color-primary;
         }
-    
+
         @media(min-width: 480px) {
             padding: 22px 20px;
         }
@@ -149,11 +153,11 @@ li {
     font-style: italic;
     text-align: center;
     line-height: 1;
-    
+
     @media(min-width: 480px) {
         font-size: 50px;
     }
-    
+
     @media(min-width: 992px) {
         font-size: 60px;
         text-align: left;
@@ -170,30 +174,31 @@ li {
     font-size: 30px;
     padding-bottom: 20px;
     line-height: 1;
-    
+
     @media(min-width: 480px) {
         font-size: 35px;
     }
-    
+
     @media(min-width: 768px) {
         font-size: 40px;
     }
 }
 
 #home .container {
-	text-align: center;
+    text-align: center;
 
-	@media(max-width: 767px) {
+    @media(max-width: 767px) {
         position: absolute;
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
 
-		h1, h2 {
-		  margin-left: 10px;
-		  margin-right: 10px;
-		}
-	}
+        h1,
+        h2 {
+            margin-left: 10px;
+            margin-right: 10px;
+        }
+    }
 }
 
 .animation_elements * {
@@ -212,39 +217,39 @@ li {
     font-weight: 700;
     overflow: hidden;
 
-	@media(max-width: 767px) {
-		hr {
-			margin: 0;
-			margin-bottom: -2px;
-		}
-	}
+    @media(max-width: 767px) {
+        hr {
+            margin: 0;
+            margin-bottom: -2px;
+        }
+    }
 
-	@media(min-width: 768px) {
-		margin-left: auto;
-		margin-right: auto;
+    @media(min-width: 768px) {
+        margin-left: auto;
+        margin-right: auto;
 
-		hr {
-			display: none;
-		}
-	}
+        hr {
+            display: none;
+        }
+    }
 }
 
 .level_text {
-	text-transform: uppercase;
-	text-align: center;
-  
-	@media(max-width: 767px) {
-		padding-top: 10px;
-		padding-bottom: 10px;
-		background-color: $color-secondary;
-		color: $color-level-text;
-		margin: 0 auto;
-		margin-bottom: 10px;
-		width: 40%;
-		border-bottom-left-radius: 10px;
-		border-bottom-right-radius: 10px;
-	}
-    
+    text-transform: uppercase;
+    text-align: center;
+
+    @media(max-width: 767px) {
+        padding-top: 10px;
+        padding-bottom: 10px;
+        background-color: $color-secondary;
+        color: $color-level-text;
+        margin: 0 auto;
+        margin-bottom: 10px;
+        width: 40%;
+        border-bottom-left-radius: 10px;
+        border-bottom-right-radius: 10px;
+    }
+
     @media(min-width: 768px) {
         padding-top: 20px;
         color: $color-level-text-lg;
@@ -252,79 +257,79 @@ li {
 }
 
 .circle {
-	@media(max-width: 767px) {
-		min-height: 100px;
-		margin-bottom: 10px;
-	}
-	@media(min-width: 768px) {
-		border: 2px solid $color-target;
-		border-radius: 50%;
-	}
+    @media(max-width: 767px) {
+        min-height: 100px;
+        margin-bottom: 10px;
+    }
+    @media(min-width: 768px) {
+        border: 2px solid $color-target;
+        border-radius: 50%;
+    }
 }
 
 .arrow {
-	color: $color-skill-text;
-	display: inline-block;
-	height: 30px;
-	line-height: 30px;
-	padding: 0 12px;
-	text-align: center;
+    color: $color-skill-text;
+    display: inline-block;
+    height: 30px;
+    line-height: 30px;
+    padding: 0 12px;
+    text-align: center;
 
-	@media(max-width: 767px) {
-		margin: 5px;
-		border-radius: 2px;
-	}
+    @media(max-width: 767px) {
+        margin: 5px;
+        border-radius: 2px;
+    }
 }
 
 @media(min-width: 768px) {
-	.outer {
-		position: relative;
-		width: 600px;
-		height: 600px;
-		margin: 0 auto;
-	}
+    .outer {
+        position: relative;
+        width: 600px;
+        height: 600px;
+        margin: 0 auto;
+    }
 
-	@include innerCircle(1, 10%, 80%);
-	@include innerCircle(2, 20%, 60%);
-	@include innerCircle(3, 30%, 40%);
-	@include innerCircle(4, 40%, 20%);
+    @include innerCircle(1, 10%, 80%);
+    @include innerCircle(2, 20%, 60%);
+    @include innerCircle(3, 30%, 40%);
+    @include innerCircle(4, 40%, 20%);
 
-	@include keyframes(slideleft) {
-		from {
-			margin-left: 100%;
-		}
-		to {
-			visibility: visible;
-		}
-	}
+    @include keyframes(slideleft) {
+        from {
+            margin-left: 100%;
+        }
+        to {
+            visibility: visible;
+        }
+    }
 
-	@include keyframes(slideright) {
-		from {
-			margin-left: -100%;
-		}
-		to {
-			visibility: visible;
-		}
-	}
+    @include keyframes(slideright) {
+        from {
+            margin-left: -100%;
+        }
+        to {
+            visibility: visible;
+        }
+    }
 
-	.arrow {
-		display: block;
-		position: relative;
-		width: 110px;
-		@include prefixProp((box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.4)), webkit moz o);
-		visibility: hidden;
+    .arrow {
+        display: block;
+        position: relative;
+        width: 110px;
+        @include prefixProp((box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.4)), webkit moz o);
+        visibility: hidden;
 
-		&:before,
-		&:after {
-			content: "";
-			height: 0;
-			position: absolute;
-			width: 0;
-		}
-		
-		@include arrow(right, left, slideleft);
-		@include arrow(left, right, slideright);
-	}
+        &:before,
+        &:after {
+            content: "";
+            height: 0;
+            position: absolute;
+            width: 0;
+        }
+
+        @include arrow(right, left, slideleft);
+        @include arrow(left, right, slideright);
+    }
 }
 
 .skill_html {
@@ -376,6 +381,7 @@ li {
 /*
  * Experience
  */
+
 @media(min-width: 992px) {
     .experience-container {
         display: table;
@@ -386,11 +392,11 @@ li {
 }
 
 .experience {
-	color: $color-exp-txt;
+    color: $color-exp-txt;
     padding: 15px;
     background-color: $color-exp-block-bg;
     box-shadow: 3px 3px 6px $color-exp-block-shadow;
-    
+
     .organisation {
         text-transform: uppercase;
         color: $color-exp-org;
@@ -421,17 +427,17 @@ li {
             }
         }
     }
-    
+
     @media(max-width: 991px) {
         display: block;
         margin-left: 10px;
         margin-right: 10px;
-        
+
         & + & {
             margin-top: 20px;
         }
     }
-    
+
     @media(min-width: 992px) {
         display: table-cell;
         width: 30%;
@@ -440,46 +446,39 @@ li {
 
 
 /*
- * Contact
- */
+* Contact
+*/
 
-.contact-email, .link-text {
+.contact-email,
+.link-text {
     color: $color-secondary;
-    text-align: center;
     margin-top: 35px;
     font-size: 20px;
-    
-    @media(min-width: 480px) {
-        font-size: 20px;
-    }
 }
 
 .link-text {
-	color: $color-primary;
-	text-decoration: underline;
-	margin-left: 5px;
-    
+    color: $color-primary;
+    margin-left: 5px;
+
     @media(min-width: 768px) {
         display: none;
     }
 }
 
 .contact-email .fa-envelope {
-    color: $color-mail;
-    font-size: 30px;
+    font-size: 35px;
     margin-right: 10px;
 }
 
 .cards {
-    text-align: center;
-    
-    a {
-        margin-top: 35px;
-    }
+    position: relative;
 }
 
-.cards a .fa, .cards a .link-text, .contact-email .fa-envelope, .contact-email span {
-	vertical-align: middle;
+.cards a .fa,
+.cards a .link-text,
+.contact-email .fa-envelope,
+.contact-email span {
+    vertical-align: middle;
 }
 
 .card {
@@ -489,68 +488,121 @@ li {
     .fa {
         font-size: 45px;
     }
+}
 
-    .fa-linkedin {
-        color: $color-linkedin;
+@media(max-width: 767px) {
+    .cards {
+        .fa {
+            padding: 15px;
+        }
+
+        .fa-linkedin {
+            background: linear-gradient(-263deg, $color-linkedin 87%, transparent 89%);
+        }
+
+        .fa-github {
+            background: linear-gradient(-263deg, $color-github 87%, transparent 89%);
+        }
+
+        .fa-facebook {
+            background: linear-gradient(-263deg, $color-facebook 87%, transparent 89%);
+        }
     }
 
-    .fa-github {
-        color: $color-github;
+    .cards,
+    .contact-email,
+    .link-text {
+        text-align: left;
     }
 
-    .fa-facebook {
-        color: $color-facebook;
+    .contact-email .fa-envelope {
+        padding: 20px 15px;
+        background: linear-gradient(-263deg, $color-mail 87%, transparent 89%);
+    }
+
+    .cards a,
+    .contact-email {
+        margin-top: 5px;
+        background-color: #fff;
+        border-top: 1px solid #e3e3e3;
+        border-bottom: 1px solid #e3e3e3;
+        .fa,
+        .fa-envelope {
+            color: #fff;
+            width: 10%;
+            text-align: center;
+        }
     }
 }
 
 @media(min-width: 768px) {
-    .card {
-        display: inline-block;
-        background: $color-card-bg;
-        width: 120px;
-        height: 200px;
-        margin: 1px;
-        display: inline-block;
-        visibility: hidden;
-        @include prefixProp((
-            border-radius: 5px,
-            box-shadow: (0 6px 6px rgba(10,16,20,.15), 0 0 52px rgba(10,16,20,.12)),
-            animation-duration: 1s,
-            animation-name: slideup,
-            animation-fill-mode: forwards), webkit moz o);
+    .cards {
+        text-align: center;
+        min-height: $contact-card-height;
+    }
 
-        &:hover {
-            top: -20px;
-        }
-        
+    .contact-email,
+    .link-text {
+        text-align: center;
+    }
+
+    .contact-email .fa-envelope {
+        color: $color-mail;
+    }
+
+    .card {
+        position: absolute;
+        left: 50%;
+        background: $color-card-bg;
+        width: $contact-card-width;
+        height: $contact-card-height;
+        margin: 0;
+        margin-left: -$contact-card-width/2;
+        visibility: hidden;
+        @include prefixProp(( border-radius: 5px,
+        box-shadow: (-3px 3px 6px rgba(10, 16, 20, 0.15)),
+        animation-duration: 1.5s,
+        animation-name: slideup,
+        animation-fill-mode: forwards), webkit moz o);
+
         .fa {
             display: block;
-			font-size: 50px;
-            margin-top: 70px;
+            font-size: $fs-social-icon-lg;
+            margin-top: ($contact-card-height/2) - ($fs-social-icon-lg/2);
+        }
+
+        .fa-linkedin {
+            color: $color-linkedin;
+        }
+
+        .fa-github {
+            color: $color-github;
+        }
+
+        .fa-facebook {
+            color: $color-facebook;
         }
     }
 
     @include keyframes(slideup) {
         from {
-            top: 900px;
+            transform: translate(0px, 400px) rotate(0deg);
         }
         to {
             visibility: visible;
         }
     }
-    
+
     $card-center-pos: floor($num-of-contact-cards/2) + 1;
-    
+
     @for $index from 1 through $num-of-contact-cards {
         $value: $index - $card-center-pos;
         .card_#{$index} {
-            position: relative;
-            top: $value * $value * 10px;
-            left: $value * -15px;
-            z-index: $index * 9;
-            @include prefixProp((
-                transform: rotate($value * 10deg),
-                animation-delay: $index * 0.5s), webkit moz ms o);
+            @include prefixProp(( transform: translate(($value * ($contact-card-width - 10)), abs($value * 10px)) rotate($value * 10deg),
+            animation-delay: ($value * 0.5s)), webkit moz ms o);
+            &:hover {
+                @include prefixProp((transform: translate(($value * ($contact-card-width - 10)), -20px) rotate($value * 10deg)), webkit moz ms o);
+            }
         }
     }
 }

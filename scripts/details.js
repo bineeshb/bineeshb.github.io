@@ -52,7 +52,7 @@ var experienceDetails = [
 ];
 
 var contactDetails = [
-    { iconClass: "fa-linkedin", displayText: "/bineesh-balasubramanian", link: "https://in.linkedin.com/in/bineesh-balasubramanian-5b9223b5" },
-    { iconClass: "fa-facebook", displayText: "/bineesh.balasubramanian", link: "https://www.facebook.com/bineesh.balasubramanian" },
-    { iconClass: "fa-github", displayText: "/bineeshb", link: "https://github.com/bineeshb" }
+    { iconClass: "fa-linkedin", displayText: "bineesh-balasubramanian", link: "https://in.linkedin.com/in/bineesh-balasubramanian-5b9223b5" },
+    { iconClass: "fa-facebook", displayText: "bineesh.balasubramanian", link: "https://www.facebook.com/bineesh.balasubramanian" },
+    { iconClass: "fa-github", displayText: "bineeshb", link: "https://github.com/bineeshb" }
 ];
