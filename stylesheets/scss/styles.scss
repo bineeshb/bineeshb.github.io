@@ -13,8 +13,8 @@ body {
 
 
 /*
- * Grid
- */
+* Grid
+*/
 
 .container {
     width: 100%;
@@ -36,6 +36,7 @@ body {
 #home,
 #skills,
 #experience,
+#works,
 #contact {
     padding-top: 60px;
     position: relative;
@@ -49,21 +50,26 @@ body {
     z-index: 1;
 }
 
-#experience {
+#works {
     z-index: 2;
 }
 
-#skills {
+#experience {
     z-index: 3;
+}
+
+#skills {
+    z-index: 4;
 }
 
 #home {
     background-color: $color-primary;
-    z-index: 4;
+    z-index: 5;
 }
 
 #skills,
 #experience,
+#works,
 #contact,
 footer {
     background-color: $color-section-bg;
@@ -71,8 +77,8 @@ footer {
 
 
 /*
- * Header
- */
+* Header
+*/
 
 header {
     background-color: $color-nav-bg;
@@ -83,8 +89,8 @@ header {
 
 
 /*
- * Footer
- */
+* Footer
+*/
 
 footer p {
     text-align: center;
@@ -94,8 +100,8 @@ footer p {
 
 
 /*
- * Typography
- */
+* Typography
+*/
 
 h1 {
     margin-top: 22px;
@@ -166,443 +172,8 @@ li {
 }
 
 
-/*
- * Home
- */
-
-.hero {
-    font-size: 30px;
-    padding-bottom: 20px;
-    line-height: 1;
-
-    @media(min-width: 480px) {
-        font-size: 35px;
-    }
-
-    @media(min-width: 768px) {
-        font-size: 40px;
-    }
-}
-
-#home .container {
-    text-align: center;
-
-    @media(max-width: 767px) {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-
-        h1,
-        h2 {
-            margin-left: 10px;
-            margin-right: 10px;
-        }
-    }
-}
-
-.animation_elements * {
-    @include prefixProp((animation: none 0 !important), webkit moz o);
-}
-
-
-/*
- * Skills
- */
-
-.target {
-    position: relative;
-    margin-left: 30px;
-    margin-right: 30px;
-    font-weight: 700;
-    overflow: hidden;
-
-    @media(max-width: 767px) {
-        hr {
-            margin: 0;
-            margin-bottom: -2px;
-        }
-    }
-
-    @media(min-width: 768px) {
-        margin-left: auto;
-        margin-right: auto;
-
-        hr {
-            display: none;
-        }
-    }
-}
-
-.level_text {
-    text-transform: uppercase;
-    text-align: center;
-
-    @media(max-width: 767px) {
-        padding-top: 10px;
-        padding-bottom: 10px;
-        background-color: $color-secondary;
-        color: $color-level-text;
-        margin: 0 auto;
-        margin-bottom: 10px;
-        width: 40%;
-        border-bottom-left-radius: 10px;
-        border-bottom-right-radius: 10px;
-    }
-
-    @media(min-width: 768px) {
-        padding-top: 20px;
-        color: $color-level-text-lg;
-    }
-}
-
-.circle {
-    @media(max-width: 767px) {
-        min-height: 100px;
-        margin-bottom: 10px;
-    }
-    @media(min-width: 768px) {
-        border: 2px solid $color-target;
-        border-radius: 50%;
-    }
-}
-
-.arrow {
-    color: $color-skill-text;
-    display: inline-block;
-    height: 30px;
-    line-height: 30px;
-    padding: 0 12px;
-    text-align: center;
-
-    @media(max-width: 767px) {
-        margin: 5px;
-        border-radius: 2px;
-    }
-}
-
-@media(min-width: 768px) {
-    .outer {
-        position: relative;
-        width: 600px;
-        height: 600px;
-        margin: 0 auto;
-    }
-
-    @include innerCircle(1, 10%, 80%);
-    @include innerCircle(2, 20%, 60%);
-    @include innerCircle(3, 30%, 40%);
-    @include innerCircle(4, 40%, 20%);
-
-    @include keyframes(slideleft) {
-        from {
-            margin-left: 100%;
-        }
-        to {
-            visibility: visible;
-        }
-    }
-
-    @include keyframes(slideright) {
-        from {
-            margin-left: -100%;
-        }
-        to {
-            visibility: visible;
-        }
-    }
-
-    .arrow {
-        display: block;
-        position: relative;
-        width: 110px;
-        @include prefixProp((box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.4)), webkit moz o);
-        visibility: hidden;
-
-        &:before,
-        &:after {
-            content: "";
-            height: 0;
-            position: absolute;
-            width: 0;
-        }
-
-        @include arrow(right, left, slideleft);
-        @include arrow(left, right, slideright);
-    }
-}
-
-.skill_html {
-    @include skillArrow(right, $color-skillbg-html, 5%, 80%, 0.5s);
-}
-
-.skill_css {
-    @include skillArrow(right, $color-skillbg-css, 20%, 93%, 1s);
-}
-
-.skill_js {
-    color: $color-skill-js;
-    @include skillArrow(left, $color-skillbg-js, -15%, -12%, 1.5s);
-}
-
-.skill_jq {
-    @include skillArrow(left, $color-skillbg-jq, -5%, -27%, 2s);
-}
-
-.skill_rivet {
-    @include skillArrow(left, $color-skillbg-rivet, 7%, -30%, 3.5s);
-}
-
-.skill_underscore {
-    @include skillArrow(left, $color-skillbg-underscore, 18%, -20%, 2.5s);
-}
-
-.skill_backbone {
-    @include skillArrow(left, $color-skillbg-backbone, 0, 1%, 4s);
-}
-
-.skill_photoshop {
-    @include skillArrow(right, $color-skillbg-photoshop, -7%, 70%, 4.5s);
-}
-
-.skill_scss {
-    @include skillArrow(right, $color-skillbg-scss, 40%, 92%, 1.5s);
-}
-
-.skill_angular {
-    @include skillArrow(left, $color-skillbg-angular, 0, 9%, 5s);
-}
-
-.skill_bootstrap {
-    @include skillArrow(right, $color-skillbg-photoshop, 50%, 81%, 5.5s);
-}
-
-
-/*
- * Experience
- */
-
-@media(min-width: 992px) {
-    .experience-container {
-        display: table;
-        width: 100%;
-        border-collapse: separate;
-        border-spacing: 5px;
-    }
-}
-
-.experience {
-    color: $color-exp-txt;
-    padding: 15px;
-    background-color: $color-exp-block-bg;
-    box-shadow: 3px 3px 6px $color-exp-block-shadow;
-
-    .organisation {
-        text-transform: uppercase;
-        color: $color-exp-org;
-        margin-bottom: 3px;
-        width: 95%;
-    }
-
-    .duration {
-        font-style: italic;
-        margin-bottom: 10px;
-        padding-bottom: 5px;
-        border-bottom: 1px solid $color-exp-dur;
-    }
-
-    .profile {
-        .role {
-            text-transform: uppercase;
-            font-weight: 700;
-            margin-top: 10px;
-        }
-
-        .description {
-            font-style: italic;
-            padding-left: 7px;
-
-            &::before {
-                content: "- ";
-            }
-        }
-    }
-
-    @media(max-width: 991px) {
-        display: block;
-        margin-left: 10px;
-        margin-right: 10px;
-
-        & + & {
-            margin-top: 20px;
-        }
-    }
-
-    @media(min-width: 992px) {
-        display: table-cell;
-        width: 30%;
-    }
-}
-
-
-/*
-* Contact
-*/
-
-.contact-email,
-.link-text {
-    color: $color-secondary;
-    margin-top: 35px;
-    font-size: 20px;
-}
-
-.link-text {
-    color: $color-primary;
-    margin-left: 5px;
-
-    @media(min-width: 768px) {
-        display: none;
-    }
-}
-
-.contact-email .fa-envelope {
-    font-size: 35px;
-    margin-right: 10px;
-}
-
-.cards {
-    position: relative;
-}
-
-.cards a .fa,
-.cards a .link-text,
-.contact-email .fa-envelope,
-.contact-email span {
-    vertical-align: middle;
-}
-
-.card {
-    text-decoration: none;
-    display: block;
-
-    .fa {
-        font-size: 45px;
-    }
-}
-
-@media(max-width: 767px) {
-    .cards {
-        .fa {
-            padding: 15px;
-        }
-
-        .fa-linkedin {
-            background: linear-gradient(-263deg, $color-linkedin 87%, transparent 89%);
-        }
-
-        .fa-github {
-            background: linear-gradient(-263deg, $color-github 87%, transparent 89%);
-        }
-
-        .fa-facebook {
-            background: linear-gradient(-263deg, $color-facebook 87%, transparent 89%);
-        }
-    }
-
-    .cards,
-    .contact-email,
-    .link-text {
-        text-align: left;
-    }
-
-    .contact-email .fa-envelope {
-        padding: 20px 15px;
-        background: linear-gradient(-263deg, $color-mail 87%, transparent 89%);
-    }
-
-    .cards a,
-    .contact-email {
-        margin-top: 5px;
-        background-color: #fff;
-        border-top: 1px solid #e3e3e3;
-        border-bottom: 1px solid #e3e3e3;
-        .fa,
-        .fa-envelope {
-            color: #fff;
-            width: 10%;
-            text-align: center;
-        }
-    }
-}
-
-@media(min-width: 768px) {
-    .cards {
-        text-align: center;
-        min-height: $contact-card-height;
-    }
-
-    .contact-email,
-    .link-text {
-        text-align: center;
-    }
-
-    .contact-email .fa-envelope {
-        color: $color-mail;
-    }
-
-    .card {
-        position: absolute;
-        left: 50%;
-        background: $color-card-bg;
-        width: $contact-card-width;
-        height: $contact-card-height;
-        margin: 0;
-        margin-left: -$contact-card-width/2;
-        visibility: hidden;
-        @include prefixProp(( border-radius: 5px,
-        box-shadow: (-3px 3px 6px rgba(10, 16, 20, 0.15)),
-        animation-duration: 1.5s,
-        animation-name: slideup,
-        animation-fill-mode: forwards), webkit moz o);
-
-        .fa {
-            display: block;
-            font-size: $fs-social-icon-lg;
-            margin-top: ($contact-card-height/2) - ($fs-social-icon-lg/2);
-        }
-
-        .fa-linkedin {
-            color: $color-linkedin;
-        }
-
-        .fa-github {
-            color: $color-github;
-        }
-
-        .fa-facebook {
-            color: $color-facebook;
-        }
-    }
-
-    @include keyframes(slideup) {
-        from {
-            transform: translate(0px, 400px) rotate(0deg);
-        }
-        to {
-            visibility: visible;
-        }
-    }
-
-    $card-center-pos: floor($num-of-contact-cards/2) + 1;
-
-    @for $index from 1 through $num-of-contact-cards {
-        $value: $index - $card-center-pos;
-        .card_#{$index} {
-            @include prefixProp(( transform: translate(($value * ($contact-card-width - 10)), abs($value * 10px)) rotate($value * 10deg),
-            animation-delay: ($value * 0.5s)), webkit moz ms o);
-            &:hover {
-                @include prefixProp((transform: translate(($value * ($contact-card-width - 10)), -20px) rotate($value * 10deg)), webkit moz ms o);
-            }
-        }
-    }
-}
+@import "_home";
+@import "_skills";
+@import "_experience";
+@import "_works";
+@import "_contact";

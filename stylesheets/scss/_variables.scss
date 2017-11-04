@@ -5,7 +5,7 @@ $color-nav-bg: #2c3e50;
 $color-nav-link: #fff;
 $color-pg-title: $color-secondary;
 $color-pg-bg: #ecf0f1;
- 
+
 //
 //  Skills
 //
@@ -13,18 +13,41 @@ $color-target: $color-secondary;
 $color-level-text: #fff;
 $color-level-text-lg: #3b3b3b;
 $color-skill-text: #fff;
-$color-skillbg-html: #FF5722;
-$color-skillbg-css: #2196F3;
-$color-skill-js: #000000;
-$color-skillbg-js: #FFC107;
-$color-skillbg-jq: #0769ad;
-$color-skillbg-rivet: #3F51B5;
-$color-skillbg-underscore: #009688;
-$color-skillbg-backbone: #795548;
-$color-skillbg-photoshop: #673AB7;
-$color-skillbg-scss: #F06292;
-$color-skillbg-angular: #dd0031;
- 
+$color-skill-text-shadow: rgba(0, 0, 0, 0.4);
+$color-skill-shadow: rgba(0, 0, 0, 0.4);
+
+$circle-dia-beginner: 600px;
+$circle-dia-familiar: 0.8 * $circle-dia-beginner;
+$circle-dia-proficient: 0.6 * $circle-dia-beginner;
+$circle-dia-expert: 0.4 * $circle-dia-beginner;
+$circle-dia-master: 0.2 * $circle-dia-beginner;
+
+$circle-radius: ( b: $circle-dia-beginner/2,
+f: $circle-dia-familiar/2,
+p: $circle-dia-proficient/2,
+e: $circle-dia-expert/2,
+m: $circle-dia-master/2);
+
+$skills: (
+    left: (
+        angular: (b, #dd0031, #c3002f),
+        backbone: (f, #0071b5, #002a41),
+        js: (p, #ffc107),
+        jq: (p, #0769ad),
+        rivet: (p, #3f86e4),
+        underscore: (p, #0071b5, #002a41)
+    ),
+    right: (
+        photoshop: (f, #31c5f0, #0c0824),
+        html: (p, #FF5722),
+        css: (p, #2196F3),
+        scss: (f, #cf649a),
+        bootstrap: (f, #563d7c)
+    )
+);
+
+$startAngle: 70;
+
 //
 //  Experience
 //
@@ -33,17 +56,39 @@ $color-exp-org: $color-primary;
 $color-exp-dur: #dbdbdb;
 $color-exp-block-bg: #fff;
 $color-exp-block-shadow: #e3e3e3;
- 
+
+//
+//  Works
+//
+$color-works-text: #3b3b3b;
+$color-works-bg: #fff;
+$color-works-shadow: 3px 3px 6px #e3e3e3;
+$color-works-title: #fff;
+$color-works-title-bg: #009688;
+$color-works-border: 3px solid $color-works-title-bg;
+$color-works-links: #1976d2;
+$color-works-links-bg: #eee;
+$color-works-links-hover: #fff;
+$color-works-links-hover-bg: #607D8B;
+
+$works-title-height: 52px;
+$works-links-height: 42px;
+$works-num-of-links: 2;
+
 //
 //  Contact
 //
+$color-contact-border-xs: #e3e3e3;
+$color-contact-icon-xs: #fff;
+$color-contact-bg-xs: #fff;
 $color-card-bg: #fff;
-$color-linkedin: #0077b5;
-$color-facebook: #3b5998;
-$color-github: #333;
 $color-mail: #ea4335;
- 
-$num-of-contact-cards: 3;
+$color-card-shadow: rgba(10, 16, 20, 0.15);
+
+$contact-cards: ( linkedin: #0077b5,
+facebook: #3b5998,
+github: #333);
+
 $contact-card-width: 120px;
 $contact-card-height: 200px;
 $fs-social-icon-lg: 50px;

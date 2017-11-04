@@ -17,6 +17,7 @@
             <a href="#home">I am&hellip;</a><!--
             --><a href="#skills">I know&hellip;</a><!--
             --><a href="#experience">I have&hellip;</a><!--
+            --><a href="#works">I did&hellip;</a><!--
             --><a href="#contact">Me @</a>
         </nav>
     </header>
@@ -77,11 +78,11 @@
     <!-- Experience -->
     <section id="experience" class="experience-page">
         <div class="container">
-            <h1 class="pg-title">learned & worked in&hellip;</h1>
+            <h1 class="pg-title">I have learned & worked in&hellip;</h1>
             <div class="experience-container">
                 <script id="experience-template" type="text/x-handlebars-template">
                     {{#each this}}
-                    <div class="experience">
+                    <article class="experience">
                         <h4 class="duration">{{from}} - {{to}}</h4>
                         <h2 class="organisation">{{organisation}}</h2>
                         <h4 class="location">{{location}}</h4>
@@ -92,17 +93,40 @@
                             <p class="description">{{this}}</p>
                             {{/each}} {{/each}}
                         </div>
-                    </div>
+                    </article>
                     {{/each}}
                 </script>
             </div>
         </div>
     </section>
 
+    <!-- My works -->
+    <section id="works" class="works-page">
+        <div class="works-container">
+            <script id="works-template" type="text/x-handlebars-template">
+                <div class="container">
+                    <h1 class="pg-title">I did the following&hellip;</h1>
+                    {{#each this}}
+                    <article class="works">
+                        <h2 class="title">{{name}}</h2>
+                        <p class="description">{{description}}</p>
+                        <div class="action-container">
+                            {{#if homepage}}
+                            <a href="{{homepage}}" target="_blank">Visit site</a>
+                            {{/if}}
+                            <a href="{{svn_url}}" target="_blank">View code</a>
+                        </div>
+                    </article>
+                    {{/each}}
+                </div>
+            </script>
+        </div>
+    </section>
+
     <!-- Contact me -->
     <section id="contact" class="contact-page">
         <div class="container">
-            <h1 class="pg-title">other networks&hellip;</h1>
+            <h1 class="pg-title">Me @ other networks&hellip;</h1>
             <div class="cards animation_elements">
                 <script id="contact-template" type="text/x-handlebars-template">
                     {{#each this}}

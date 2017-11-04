@@ -1,0 +1,99 @@
+/*
+* Works
+*/
+
+.works {
+    color: $color-works-text;
+    background-color: $color-works-bg;
+    box-shadow: $color-works-shadow;
+    border-top: $color-works-border;
+
+    & + & {
+        margin-top: 10px;
+    }
+
+    .title {
+        display: inline-block;
+        position: relative;
+        background-color: $color-works-title-bg;
+        color: $color-works-title;
+        padding: 15px 20px;
+        margin-top: -1px;
+
+        &:after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 100%;
+            border-width: $works-title-height/2;
+            border-style: solid;
+            border-color: $color-works-title-bg transparent transparent $color-works-title-bg;
+        }
+    }
+
+    .description {
+        padding: 20px 20px 10px;
+    }
+}
+
+.works .action-container {
+    text-align: right;
+
+    a {
+        display: inline-block;
+        position: relative;
+        padding: 10px;
+        box-sizing: border-box;
+        height: 42px;
+        text-decoration: none;
+        color: $color-works-links;
+        background-color: $color-works-links-bg;
+
+        &:before,
+        &:nth-last-child(n+2):after {
+            content: "";
+            box-sizing: border-box;
+            height: 42px;
+            position: absolute;
+            top: 0;
+            border: $works-links-height/2 solid transparent;
+        }
+
+        &:before {
+            left: -$works-links-height;
+            border-right-color: $color-works-links-bg;
+            border-bottom-color: $color-works-links-bg;
+        }
+
+        &:hover {
+            color: $color-works-links-hover;
+            background-color: $color-works-links-hover-bg;
+
+            &:before {
+                border-right-color: $color-works-links-hover-bg;
+                border-bottom-color: $color-works-links-hover-bg;
+            }
+        }
+
+        @for $index from 1 to $works-num-of-links {
+            &:nth-last-child(#{$index + 1}) {
+                left: -($works-links-height * $index) + (2 * $index);
+
+                &:after {
+                    left: 100%;
+                    border-top-color: $color-works-links-bg;
+                    border-left-color: $color-works-links-bg;
+                }
+
+                &:hover:after {
+                    border-top-color: $color-works-links-hover-bg;
+                    border-left-color: $color-works-links-hover-bg;
+                }
+            }
+        }
+
+        &:last-child {
+            padding-right: 15px;
+        }
+    }
+}

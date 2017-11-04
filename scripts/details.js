@@ -50,6 +50,9 @@ var experienceDetails = [
         ]
     }
 ];
+ 
+var reposUrl = "https://api.github.com/users/bineeshb/repos";
+var portfolioUrl = "https://bineeshb.github.io/";
 
 var contactDetails = [
     { iconClass: "fa-linkedin", displayText: "bineesh-balasubramanian", link: "https://in.linkedin.com/in/bineesh-balasubramanian-5b9223b5" },
