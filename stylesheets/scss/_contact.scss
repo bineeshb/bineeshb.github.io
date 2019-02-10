@@ -4,149 +4,149 @@
 
 .contact-email,
 .link-text {
-    color: $color-secondary;
-    margin-top: 35px;
-    font-size: 20px;
+  color: $color-secondary;
+  margin-top: 35px;
+  font-size: 20px;
 }
 
 .link-text {
-    color: $color-primary;
-    margin-left: 5px;
+  color: $color-primary;
+  margin-left: 5px;
 
-    @media(min-width: 768px) {
-        display: none;
-    }
+  @media(min-width: 768px) {
+    display: none;
+  }
 }
 
 .contact-email .fa-envelope {
-    font-size: 35px;
-    margin-right: 10px;
+  font-size: 35px;
+  margin-right: 10px;
 }
 
 .cards {
-    position: relative;
+  position: relative;
 }
 
 .cards a .fa,
 .cards a .link-text,
 .contact-email .fa-envelope,
 .contact-email span {
-    vertical-align: middle;
+  vertical-align: middle;
 }
 
 .card {
-    text-decoration: none;
-    display: block;
+  text-decoration: none;
+  display: block;
 
-    .fa {
-        font-size: 45px;
-    }
+  .fa {
+    font-size: 45px;
+  }
 }
 
 @media(max-width: 767px) {
-    .cards {
-        .fa {
-            padding: 15px;
-        }
-
-        @each $contact, $color in $contact-cards {
-            .fa-#{$contact} {
-                background: linear-gradient(-263deg, $color 87%, transparent 89%);
-            }
-        }
+  .cards {
+    .fa {
+      padding: 15px;
     }
 
-    .cards,
-    .contact-email,
-    .link-text {
-        text-align: left;
+    @each $contact, $color in $contact-cards {
+      .fa-#{$contact} {
+        background: linear-gradient(-263deg, $color 87%, transparent 89%);
+      }
     }
+  }
 
-    .contact-email .fa-envelope {
-        padding: 20px 15px;
-        background: linear-gradient(-263deg, $color-mail 87%, transparent 89%);
-    }
+  .cards,
+  .contact-email,
+  .link-text {
+    text-align: left;
+  }
 
-    .cards a,
-    .contact-email {
-        margin-top: 5px;
-        background-color: $color-contact-bg-xs;
-        border-top: 1px solid $color-contact-border-xs;
-        border-bottom: 1px solid $color-contact-border-xs;
-        .fa,
-        .fa-envelope {
-            color: $color-contact-icon-xs;
-            width: 10%;
-            text-align: center;
-        }
+  .contact-email .fa-envelope {
+    padding: 20px 15px;
+    background: linear-gradient(-263deg, $color-mail 87%, transparent 89%);
+  }
+
+  .cards a,
+  .contact-email {
+    margin-top: 5px;
+    background-color: $color-contact-bg-xs;
+    border-top: 1px solid $color-contact-border-xs;
+    border-bottom: 1px solid $color-contact-border-xs;
+    .fa,
+    .fa-envelope {
+      color: $color-contact-icon-xs;
+      width: 10%;
+      text-align: center;
     }
+  }
 }
 
 @media(min-width: 768px) {
-    .cards {
-        text-align: center;
-        min-height: $contact-card-height;
+  .cards {
+    text-align: center;
+    min-height: $contact-card-height;
+  }
+
+  .contact-email,
+  .link-text {
+    text-align: center;
+  }
+
+  .contact-email .fa-envelope {
+    color: $color-mail;
+  }
+
+  .card {
+    position: absolute;
+    left: 50%;
+    background: $color-card-bg;
+    width: $contact-card-width;
+    height: $contact-card-height;
+    margin: 0;
+    margin-left: -$contact-card-width/2;
+    visibility: hidden;
+    @include prefixProp((
+      border-radius: 5px,
+      box-shadow: (-3px 3px 6px $color-card-shadow),
+      animation-duration: 1.5s,
+      animation-name: slideup,
+      animation-fill-mode: forwards), webkit moz o);
+
+    .fa {
+      display: block;
+      font-size: $fs-social-icon-lg;
+      margin-top: ($contact-card-height/2) - ($fs-social-icon-lg/2);
     }
 
-    .contact-email,
-    .link-text {
-        text-align: center;
+    @each $contact, $color in $contact-cards {
+      .fa-#{$contact} {
+        color: $color;
+      }
     }
+  }
 
-    .contact-email .fa-envelope {
-        color: $color-mail;
+  @include keyframes(slideup) {
+    from {
+      transform: translate(0px, 400px) rotate(0deg);
     }
-
-    .card {
-        position: absolute;
-        left: 50%;
-        background: $color-card-bg;
-        width: $contact-card-width;
-        height: $contact-card-height;
-        margin: 0;
-        margin-left: -$contact-card-width/2;
-        visibility: hidden;
-        @include prefixProp((
-            border-radius: 5px,
-            box-shadow: (-3px 3px 6px $color-card-shadow),
-            animation-duration: 1.5s,
-            animation-name: slideup,
-            animation-fill-mode: forwards), webkit moz o);
-
-        .fa {
-            display: block;
-            font-size: $fs-social-icon-lg;
-            margin-top: ($contact-card-height/2) - ($fs-social-icon-lg/2);
-        }
-
-        @each $contact, $color in $contact-cards {
-            .fa-#{$contact} {
-                color: $color;
-            }
-        }
+    to {
+      visibility: visible;
     }
+  }
 
-    @include keyframes(slideup) {
-        from {
-            transform: translate(0px, 400px) rotate(0deg);
-        }
-        to {
-            visibility: visible;
-        }
+  $num-of-contact-cards: length($contact-cards);
+  $card-center-pos: floor($num-of-contact-cards/2) + 1;
+
+  @for $index from 1 through $num-of-contact-cards {
+    $value: $index - $card-center-pos;
+    .card_#{$index} {
+      @include prefixProp((
+        transform: translate(($value * ($contact-card-width - 10)), abs($value * 10px)) rotate($value * 10deg),
+        animation-delay: ($value * 0.5s)), webkit moz ms o);
+      &:hover {
+        @include prefixProp((transform: translate(($value * ($contact-card-width - 10)), -20px) rotate($value * 10deg)), webkit moz ms o);
+      }
     }
-
-    $num-of-contact-cards: length($contact-cards);
-    $card-center-pos: floor($num-of-contact-cards/2) + 1;
-
-    @for $index from 1 through $num-of-contact-cards {
-        $value: $index - $card-center-pos;
-        .card_#{$index} {
-            @include prefixProp((
-                transform: translate(($value * ($contact-card-width - 10)), abs($value * 10px)) rotate($value * 10deg),
-                animation-delay: ($value * 0.5s)), webkit moz ms o);
-            &:hover {
-                @include prefixProp((transform: translate(($value * ($contact-card-width - 10)), -20px) rotate($value * 10deg)), webkit moz ms o);
-            }
-        }
-    }
+  }
 }
