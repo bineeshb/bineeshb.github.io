@@ -3,63 +3,63 @@
 */
 
 @media(min-width: 992px) {
-    .experience-container {
-        display: table;
-        width: 100%;
-        border-collapse: separate;
-        border-spacing: 5px;
-    }
+  .experience-container {
+    display: table;
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 5px;
+  }
 }
 
 .experience {
-    color: $color-exp-txt;
-    padding: 15px;
-    background-color: $color-exp-block-bg;
-    box-shadow: 3px 3px 6px $color-exp-block-shadow;
+  color: $color-exp-txt;
+  padding: 15px;
+  background-color: $color-exp-block-bg;
+  box-shadow: 3px 3px 6px $color-exp-block-shadow;
 
-    .organisation {
-        text-transform: uppercase;
-        color: $color-exp-org;
-        margin-bottom: 3px;
-        width: 95%;
+  .organisation {
+    text-transform: uppercase;
+    color: $color-exp-org;
+    margin-bottom: 3px;
+    width: 95%;
+  }
+
+  .duration {
+    font-style: italic;
+    margin-bottom: 10px;
+    padding-bottom: 5px;
+    border-bottom: 1px solid $color-exp-dur;
+  }
+
+  .profile {
+    .role {
+      text-transform: uppercase;
+      font-weight: 700;
+      margin-top: 10px;
     }
 
-    .duration {
-        font-style: italic;
-        margin-bottom: 10px;
-        padding-bottom: 5px;
-        border-bottom: 1px solid $color-exp-dur;
+    .description {
+      font-style: italic;
+      padding-left: 7px;
+
+      &::before {
+        content: "- ";
+      }
     }
+  }
 
-    .profile {
-        .role {
-            text-transform: uppercase;
-            font-weight: 700;
-            margin-top: 10px;
-        }
+  @media(max-width: 991px) {
+    display: block;
+    margin-left: 10px;
+    margin-right: 10px;
 
-        .description {
-            font-style: italic;
-            padding-left: 7px;
-
-            &::before {
-                content: "- ";
-            }
-        }
+    & + & {
+      margin-top: 20px;
     }
+  }
 
-    @media(max-width: 991px) {
-        display: block;
-        margin-left: 10px;
-        margin-right: 10px;
-
-        & + & {
-            margin-top: 20px;
-        }
-    }
-
-    @media(min-width: 992px) {
-        display: table-cell;
-        width: 30%;
-    }
+  @media(min-width: 992px) {
+    display: table-cell;
+    width: 30%;
+  }
 }

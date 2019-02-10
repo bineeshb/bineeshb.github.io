@@ -22,28 +22,30 @@ $circle-dia-proficient: 0.6 * $circle-dia-beginner;
 $circle-dia-expert: 0.4 * $circle-dia-beginner;
 $circle-dia-master: 0.2 * $circle-dia-beginner;
 
-$circle-radius: ( b: $circle-dia-beginner/2,
-f: $circle-dia-familiar/2,
-p: $circle-dia-proficient/2,
-e: $circle-dia-expert/2,
-m: $circle-dia-master/2);
+$circle-radius: (
+  b: $circle-dia-beginner/2,
+  f: $circle-dia-familiar/2,
+  p: $circle-dia-proficient/2,
+  e: $circle-dia-expert/2,
+  m: $circle-dia-master/2
+);
 
 $skills: (
-    left: (
-        angular: (b, #dd0031, #c3002f),
-        backbone: (f, #0071b5, #002a41),
-        js: (p, #ffc107),
-        jq: (p, #0769ad),
-        rivet: (p, #3f86e4),
-        underscore: (p, #0071b5, #002a41)
-    ),
-    right: (
-        photoshop: (f, #31c5f0, #0c0824),
-        html: (p, #FF5722),
-        css: (p, #2196F3),
-        scss: (f, #cf649a),
-        bootstrap: (f, #563d7c)
-    )
+  left: (
+    angular: (f, #dd0031, #c3002f),
+    backbone: (f, #0071b5, #002a41),
+    js: (p, #ffc107),
+    jq: (p, #0769ad),
+    rivet: (p, #3f86e4),
+    underscore: (p, #0071b5, #002a41)
+  ),
+  right: (
+    photoshop: (f, #31c5f0, #0c0824),
+    html: (p, #FF5722),
+    css: (p, #2196F3),
+    scss: (p, #cf649a),
+    bootstrap: (p, #563d7c)
+  )
 );
 
 $startAngle: 70;
@@ -70,6 +72,14 @@ $color-works-links: #1976d2;
 $color-works-links-bg: #eee;
 $color-works-links-hover: #fff;
 $color-works-links-hover-bg: #607D8B;
+
+$color-works-lang: (
+  html: #e34c26,
+  css: #563d7c,
+  javascript: #f1e05a,
+  typescript: #2b7489,
+  ruby: #701516
+);
 
 $works-title-height: 52px;
 $works-links-height: 42px;
