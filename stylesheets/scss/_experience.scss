@@ -1,6 +1,12 @@
 /*
 * Experience
 */
+$color-exp-txt: $color-secondary;
+$color-exp-org: $color-primary;
+$color-exp-dur: #dbdbdb;
+$color-exp-block-bg: #fff;
+$color-exp-block-shadow: #e3e3e3;
+
 
 @media(min-width: 992px) {
   .experience-container {
