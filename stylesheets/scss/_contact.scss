@@ -1,6 +1,23 @@
 /*
 * Contact
 */
+$color-contact-border-xs: #e3e3e3;
+$color-contact-icon-xs: #fff;
+$color-contact-bg-xs: #fff;
+$color-card-bg: #fff;
+$color-mail: #ea4335;
+$color-card-shadow: rgba(10, 16, 20, 0.15);
+
+$contact-cards: (
+  linkedin: #0077b5,
+  facebook: #3b5998,
+  github: #333
+);
+
+$contact-card-width: 120px;
+$contact-card-height: 200px;
+$fs-social-icon-lg: 50px;
+
 
 .contact-email,
 .link-text {
