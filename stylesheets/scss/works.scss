@@ -1,6 +1,29 @@
 /*
 * Works
 */
+$color-works-text: #3b3b3b;
+$color-works-bg: #fff;
+$color-works-shadow: 3px 3px 6px #e3e3e3;
+$color-works-title: #fff;
+$color-works-title-bg: #009688;
+$color-works-border: 3px solid $color-works-title-bg;
+$color-works-links: #1976d2;
+$color-works-links-bg: #eee;
+$color-works-links-hover: #fff;
+$color-works-links-hover-bg: #607D8B;
+
+$color-works-lang: (
+  html: #e34c26,
+  css: #563d7c,
+  javascript: #f1e05a,
+  typescript: #2b7489,
+  ruby: #701516
+);
+
+$works-title-height: 52px;
+$works-links-height: 42px;
+$works-num-of-links: 2;
+
 
 .works {
   color: $color-works-text;

@@ -1,8 +1,14 @@
 /*
 * Experience
 */
+$color-exp-txt: $colorSecondary;
+$color-exp-org: $colorPrimary;
+$color-exp-dur: #dbdbdb;
+$color-exp-block-bg: #fff;
+$color-exp-block-shadow: #e3e3e3;
 
-@media(min-width: 992px) {
+
+@media(min-width: $mdMinWidth) {
   .experience-container {
     display: table;
     width: 100%;
@@ -48,7 +54,7 @@
     }
   }
 
-  @media(max-width: 991px) {
+  @media(max-width: $smMaxWidth) {
     display: block;
     margin-left: 10px;
     margin-right: 10px;
@@ -58,7 +64,7 @@
     }
   }
 
-  @media(min-width: 992px) {
+  @media(min-width: $mdMinWidth) {
     display: table-cell;
     width: 30%;
   }

@@ -1,4 +1,4 @@
-@import "variables";
+@import "globals";
 @import "mixins";
 @import "reset";
 
@@ -11,24 +11,15 @@ body {
   height: 100%;
 }
 
-
 /*
 * Grid
 */
-
 .container {
   width: 100%;
   margin: 0 auto;
   padding: 20px 0;
 
-  @media (min-width: 768px) {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-  }
-
-  @media(min-width: 992px) {
+  @media(min-width: $mdMinWidth) {
     width: 960px;
   }
 }
@@ -42,7 +33,7 @@ body {
   position: relative;
   height: auto!important;
   min-height: 100%;
-  color: $color-pg-bg;
+  color: $colorPageBg;
 }
 
 #contact {
@@ -63,7 +54,7 @@ body {
 }
 
 #home {
-  background-color: $color-primary;
+  background-color: $colorPrimary;
   z-index: 5;
 }
 
@@ -72,37 +63,31 @@ body {
 #works,
 #contact,
 footer {
-  background-color: $color-section-bg;
+  background-color: $colorSectionBg;
 }
-
 
 /*
 * Header
 */
-
 header {
-  background-color: $color-nav-bg;
+  background-color: $colorNavBg;
   position: fixed;
   width: 100%;
   z-index: 9999;
 }
 
-
 /*
 * Footer
 */
-
 footer p {
   text-align: center;
-  color: $color-secondary;
+  color: $colorSecondary;
   padding-bottom: 10px;
 }
-
 
 /*
 * Typography
 */
-
 h1 {
   margin-top: 22px;
   margin-bottom: 12px;
@@ -112,7 +97,7 @@ h1 {
 h2 {
   font-size: 18px;
 
-  @media(min-width: 480px) {
+  @media(min-width: $xsMinWidth) {
     font-size: 22px;
   }
 }
@@ -137,43 +122,42 @@ li {
   text-align: center;
 
   a {
-    color: $color-nav-link;
+    color: $colorNavLink;
     text-decoration: none;
     padding: 22px 12px;
     font-weight: 700;
 
     &.active {
-      background-color: $color-primary;
+      background-color: $colorPrimary;
     }
 
-    @media(min-width: 480px) {
+    @media(min-width: $xsMinWidth) {
       padding: 22px 20px;
     }
   }
 }
 
 .pg-title {
-  color: $color-pg-title;
+  color: $colorPageTitle;
   margin-bottom: 40px;
   font-size: 30px;
   font-style: italic;
   text-align: center;
   line-height: 1;
 
-  @media(min-width: 480px) {
+  @media(min-width: $xsMinWidth) {
     font-size: 50px;
   }
 
-  @media(min-width: 992px) {
+  @media(min-width: $mdMinWidth) {
     font-size: 60px;
     text-align: left;
-    margin-bottom: 100px;
   }
 }
 
 
-@import "_home";
-@import "_skills";
-@import "_experience";
-@import "_works";
-@import "_contact";
+@import "home";
+@import "skills";
+@import "experience";
+@import "works";
+@import "contact";
