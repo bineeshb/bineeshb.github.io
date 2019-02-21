@@ -2,19 +2,18 @@ var skills = {
   master: [],
   expert: [],
   proficient: [
-    { skill: "HTML", position: "right", styleClass: "skill_html" },
-    { skill: "CSS", position: "right", styleClass: "skill_css" },
-    { skill: "JavaScript", position: "left", styleClass: "skill_js" },
-    { skill: "jQuery", position: "left", styleClass: "skill_jq" },
-    { skill: "Rivets.js", position: "left", styleClass: "skill_rivet" },
-    { skill: "Underscore.js", position: "left", styleClass: "skill_underscore" },
-    { skill: "SCSS", position: "right", styleClass: "skill_scss" },
-    { skill: "BootStrap", position: "right", styleClass: "skill_bootstrap" }
+    { skill: "HTML", position: "right", styleClass: "skill-html" },
+    { skill: "CSS", position: "right", styleClass: "skill-css" },
+    { skill: "JavaScript", position: "left", styleClass: "skill-js" },
+    { skill: "jQuery", position: "left", styleClass: "skill-jq" },
+    { skill: "SCSS", position: "right", styleClass: "skill-scss" },
+    { skill: "BootStrap", position: "right", styleClass: "skill-bootstrap" }
   ],
   familiar: [
-    { skill: "Backbone.js", position: "left", styleClass: "skill_backbone" },
-    { skill: "Photoshop", position: "right", styleClass: "skill_photoshop" },
-    { skill: "Angular 2+", position: "left", styleClass: "skill_angular" }
+    { skill: "Backbone.js", position: "left", styleClass: "skill-backbone" },
+    { skill: "Photoshop", position: "right", styleClass: "skill-photoshop" },
+    { skill: "Angular 2+", position: "left", styleClass: "skill-angular" },
+    { skill: "TypeScript", position: "left", styleClass: "skill-ts" }
   ],
   beginner: []
 };

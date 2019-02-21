@@ -1,0 +1,174 @@
+/*
+* Contact
+*/
+$colorContactBorderXS: #e3e3e3;
+$colorContactIconXS: #fff;
+$colorContactBgXS: #fff;
+$colorCardBg: #fff;
+$colorMail: #ea4335;
+$colorCardShadow: rgba(10, 16, 20, 0.15);
+
+$colorsSocialIcons: (
+  linkedin: #0077b5,
+  facebook: #3b5998,
+  github: #333
+);
+
+$numOfContacts: length($colorsSocialIcons);
+$cardCenterPos: floor($numOfContacts/2) + 1;
+$contactCardWidth: 120px;
+$contactCardHeight: 200px;
+$sizeSocialIconLG: 50px;
+
+
+.contact-email,
+.link-text {
+  color: $colorSecondary;
+  margin-top: 35px;
+  font-size: 20px;
+}
+
+.link-text {
+  color: $colorPrimary;
+  margin-left: 5px;
+
+  @media(min-width: $smMinWidth) {
+    display: none;
+  }
+}
+
+.contact-email .fa-envelope {
+  font-size: 35px;
+  margin-right: 10px;
+}
+
+.cards {
+  position: relative;
+}
+
+.cards a .fa,
+.cards a .link-text,
+.contact-email .fa-envelope,
+.contact-email span {
+  vertical-align: middle;
+}
+
+.card {
+  text-decoration: none;
+  display: block;
+
+  .fa {
+    font-size: 45px;
+  }
+}
+
+@media(max-width: $xsMaxWidth) {
+  .cards {
+    .fa {
+      padding: 15px;
+    }
+
+    @each $contact, $color in $colorsSocialIcons {
+      .fa-#{$contact} {
+        background: linear-gradient(-263deg, $color 87%, transparent 89%);
+      }
+    }
+  }
+
+  .cards,
+  .contact-email,
+  .link-text {
+    text-align: left;
+  }
+
+  .contact-email .fa-envelope {
+    padding: 20px 15px;
+    background: linear-gradient(-263deg, $colorMail 87%, transparent 89%);
+  }
+
+  .cards a,
+  .contact-email {
+    margin-top: 5px;
+    background-color: $colorContactBgXS;
+    border-top: 1px solid $colorContactBorderXS;
+    border-bottom: 1px solid $colorContactBorderXS;
+    .fa,
+    .fa-envelope {
+      color: $colorContactIconXS;
+      width: 10%;
+      text-align: center;
+    }
+  }
+}
+
+@media(min-width: $smMinWidth) {
+  .cards {
+    text-align: center;
+    min-height: $contactCardHeight;
+  }
+
+  .contact-email,
+  .link-text {
+    text-align: center;
+  }
+
+  .contact-email .fa-envelope {
+    color: $colorMail;
+  }
+
+  .card {
+    position: absolute;
+    left: 50%;
+    background: $colorCardBg;
+    width: $contactCardWidth;
+    height: $contactCardHeight;
+    margin: 0;
+    margin-left: -$contactCardWidth/2;
+    visibility: hidden;
+    @include prefixProp((
+      border-radius: 5px,
+      box-shadow: (-3px 3px 6px $colorCardShadow),
+      animation-duration: 1.5s,
+      animation-name: slideup,
+      animation-fill-mode: forwards
+    ), webkit moz o);
+
+    .fa {
+      display: block;
+      font-size: $sizeSocialIconLG;
+      margin-top: ($contactCardHeight/2) - ($sizeSocialIconLG/2);
+    }
+
+    @each $contact, $color in $colorsSocialIcons {
+      .fa-#{$contact} {
+        color: $color;
+      }
+    }
+  }
+
+  @include keyframes(slideup) {
+    from {
+      transform: translate(0px, 400px) rotate(0deg);
+    }
+    to {
+      visibility: visible;
+    }
+  }
+
+  @for $index from 1 through $numOfContacts {
+    $value: $index - $cardCenterPos;
+    $rotateBy: $value * 10deg;
+    $translateX: $value * ($contactCardWidth - 10);
+
+    .card_#{$index} {
+      @include prefixProp((
+        transform: translate($translateX, abs($value * 10px)) rotate($rotateBy),
+        animation-delay: ($value * 0.5s)
+      ), webkit moz ms o);
+
+      &:hover {
+        @include prefixProp((transform: translate($translateX, -20px) rotate($rotateBy)), webkit moz ms o);
+      }
+    }
+  }
+}
