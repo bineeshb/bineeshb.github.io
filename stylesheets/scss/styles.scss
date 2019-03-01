@@ -1,163 +1,20 @@
-@import "globals";
-@import "mixins";
-@import "reset";
+// Utils
+@import 'globals';
+@import 'mixins';
+@import 'reset';
 
-body {
-  font: 400 16px/22px Roboto, "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
-}
+// Common styles
+@import 'commons';
 
-html,
-body {
-  height: 100%;
-}
+// Navbar
+@import 'navbar';
 
-/*
-* Grid
-*/
-.container {
-  width: 100%;
-  margin: 0 auto;
-  padding: 20px 0;
+// Sections
+@import 'home';
+@import 'skills';
+@import 'experience';
+@import 'works';
+@import 'contact';
 
-  @media(min-width: $mdMinWidth) {
-    width: 960px;
-  }
-}
-
-#home,
-#skills,
-#experience,
-#works,
-#contact {
-  padding-top: 60px;
-  position: relative;
-  height: auto!important;
-  min-height: 100%;
-  color: $colorPageBg;
-}
-
-#contact {
-  overflow: hidden;
-  z-index: 1;
-}
-
-#works {
-  z-index: 2;
-}
-
-#experience {
-  z-index: 3;
-}
-
-#skills {
-  z-index: 4;
-}
-
-#home {
-  background-color: $colorPrimary;
-  z-index: 5;
-}
-
-#skills,
-#experience,
-#works,
-#contact,
-footer {
-  background-color: $colorSectionBg;
-}
-
-/*
-* Header
-*/
-header {
-  background-color: $colorNavBg;
-  position: fixed;
-  width: 100%;
-  z-index: 9999;
-}
-
-/*
-* Footer
-*/
-footer p {
-  text-align: center;
-  color: $colorSecondary;
-  padding-bottom: 10px;
-}
-
-/*
-* Typography
-*/
-h1 {
-  margin-top: 22px;
-  margin-bottom: 12px;
-  font-size: 36px;
-}
-
-h2 {
-  font-size: 18px;
-
-  @media(min-width: $xsMinWidth) {
-    font-size: 22px;
-  }
-}
-
-h3 {
-  font-size: 20px;
-  text-transform: uppercase;
-}
-
-ul {
-  margin-bottom: 10px;
-}
-
-li {
-  font-weight: 600;
-}
-
-.navigation {
-  width: 100%;
-  margin: 0 auto;
-  padding: 20px 0;
-  text-align: center;
-
-  a {
-    color: $colorNavLink;
-    text-decoration: none;
-    padding: 22px 12px;
-    font-weight: 700;
-
-    &.active {
-      background-color: $colorPrimary;
-    }
-
-    @media(min-width: $xsMinWidth) {
-      padding: 22px 20px;
-    }
-  }
-}
-
-.pg-title {
-  color: $colorPageTitle;
-  margin-bottom: 40px;
-  font-size: 30px;
-  font-style: italic;
-  text-align: center;
-  line-height: 1;
-
-  @media(min-width: $xsMinWidth) {
-    font-size: 50px;
-  }
-
-  @media(min-width: $mdMinWidth) {
-    font-size: 60px;
-    text-align: left;
-  }
-}
-
-
-@import "home";
-@import "skills";
-@import "experience";
-@import "works";
-@import "contact";
+// Footer
+@import 'footer';
