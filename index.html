@@ -18,7 +18,7 @@
       --><a href="#skills">I know&hellip;</a><!--
       --><a href="#experience">I have&hellip;</a><!--
       --><a href="#works">I did&hellip;</a><!--
-      --><a href="#contact">Me @</a>
+      --><a href="#contact">Find me&hellip;</a>
     </nav>
   </header>
 
@@ -135,7 +135,7 @@
   <!-- Contact me -->
   <section id="contact" class="contact-page">
     <div class="container">
-      <h1 class="pg-title">Me @ other networks&hellip;</h1>
+      <h1 class="pg-title">Find me in&hellip;</h1>
       <div class="cards animation_elements">
         <script id="contact-template" type="text/x-handlebars-template">
           {{#each this}}
@@ -153,7 +153,9 @@
 
   <!-- Footer -->
   <footer>
-    <p>&copy; 2019 Bineesh Balasubramanian</p>
+    <script id="footer-template" type="text/x-handlebars-template">
+      <p>&copy; {{this}} Bineesh Balasubramanian</p>
+    </script>
   </footer>
 
   <!-- Scripts -->
