@@ -1,72 +1,95 @@
 /*
 * Experience
 */
-$color-exp-txt: $colorSecondary;
-$color-exp-org: $colorPrimary;
-$color-exp-dur: #dbdbdb;
-$color-exp-block-bg: #fff;
-$color-exp-block-shadow: #e3e3e3;
 
-
-@media(min-width: $mdMinWidth) {
-  .experience-container {
-    display: table;
-    width: 100%;
-    border-collapse: separate;
-    border-spacing: 5px;
-  }
-}
+$color-exp-role: $colorSecondary;
+$color-exp-text: #000;
+$color-organisation: (
+  cts: #1a237e,
+  tcs: #1565c0,
+  rmk: #1b5e20
+);
 
 .experience {
-  color: $color-exp-txt;
-  padding: 15px;
-  background-color: $color-exp-block-bg;
-  box-shadow: 3px 3px 6px $color-exp-block-shadow;
-  text-align: left;
-
-  .organisation {
-    text-transform: uppercase;
-    color: $color-exp-org;
-    margin-bottom: 3px;
-    width: 95%;
-  }
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  color: $color-exp-text;
 
   .duration {
-    font-style: italic;
-    margin-bottom: 10px;
-    padding-bottom: 5px;
-    border-bottom: 1px solid $color-exp-dur;
+    width: 20%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: space-between;
+    padding: 0 15px;
+    border-right: 10px solid black;
+    text-transform: uppercase;
+
+    p {
+      font-weight: bold;
+      white-space: nowrap;
+    }
   }
 
-  .profile {
-    .role {
-      text-transform: uppercase;
-      font-weight: 700;
-      margin-top: 10px;
+  .experience-details {
+    width: 80%;
+    text-align: left;
+    padding: 0 15px;
+
+    .organisation {
+      font-weight: bold;
     }
 
-    .description {
+    .location {
       font-style: italic;
-      padding-left: 7px;
+    }
 
-      &::before {
-        content: "- ";
+    .profile {
+      .role {
+        text-transform: uppercase;
+        font-weight: 700;
+        margin-top: 10px;
+        color: $color-exp-role;
+      }
+  
+      .description {
+        font-style: italic;
+        padding-left: 7px;
+  
+        &::before {
+          content: "- ";
+        }
       }
     }
   }
 
-  @media(max-width: $smMaxWidth) {
-    display: block;
-    margin-left: 10px;
-    margin-right: 10px;
+  + .experience {
+    margin-top: 20px;
+  }
+}
 
-    & + & {
-      margin-top: 20px;
+@each $org, $brand-color in $color-organisation {
+  .org-#{$org} {
+    .duration {
+      border-color: $brand-color;
+      color: $brand-color;
+    }
+
+    .experience-details .organisation {
+      color: $brand-color;
     }
   }
+}
 
-  @media(min-width: $mdMinWidth) {
-    display: table-cell;
-    width: 30%;
+@media(min-width: $smMinWidth) {
+  .experience {
+    .duration {
+      width: 40%;
+    }
+
+    .experience-details {
+      width: 60%;
+    }
   }
 }

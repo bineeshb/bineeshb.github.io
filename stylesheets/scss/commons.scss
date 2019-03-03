@@ -22,7 +22,7 @@ html, body {
 #home, #skills, #experience, #works, #contact {
   padding-top: 60px;
   position: relative;
-  height: auto!important;
+  height: auto !important;
   min-height: 100%;
   color: $colorPageBg;
 }
@@ -53,7 +53,7 @@ html, body {
   background-color: $colorSectionBg;
 }
 
-#home, #skills, #experience, #contact {
+#home, #skills, #contact {
   .container {
     text-align: center;
     position: absolute;

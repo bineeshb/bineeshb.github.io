@@ -50,7 +50,31 @@ function renderExperiences() {
   var $experienceSection = $("#experience .experience-container");
   var $experienceTemplate = $("#experience-template").html();
   var compiledExpDetails = Handlebars.compile($experienceTemplate);
+  experienceDetails.sort(function(exp1, exp2) {
+    return exp2.from - exp1.from;
+  });
+  experienceDetails.forEach(function(exp) {
+    exp.from = getMonthYearLabel(exp.from);
+    exp.to = getMonthYearLabel(exp.to);
+  });
   $experienceSection.html(compiledExpDetails(experienceDetails));
+}
+
+/**
+ * Returns Month Year label
+ * @param {number} yearMonth 
+ */
+function getMonthYearLabel(yearMonth) {
+  var dateString, dateObj;
+
+  if (isFinite(yearMonth)) {
+    dateString = yearMonth.substring(0, 4) + '-' + yearMonth.substring(4);
+    dateObj = new Date(dateString);
+
+    return months[dateObj.getMonth()] + ' ' + dateObj.getFullYear();
+  } else {
+    return yearMonth;
+  }
 }
 
 /**

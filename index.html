@@ -82,16 +82,21 @@
       <div class="experience-container">
         <script id="experience-template" type="text/x-handlebars-template">
           {{#each this}}
-          <article class="experience">
-            <h4 class="duration">{{from}} - {{to}}</h4>
-            <h2 class="organisation">{{organisation}}</h2>
-            <h4 class="location">{{location}}</h4>
-            <div class="profile">
-              {{#each profile}}
-              <p class="role">{{role}}</p>
-              {{#each description}}
-              <p class="description">{{this}}</p>
-              {{/each}} {{/each}}
+          <article class="experience org-{{styleClass}}">
+            <div class="duration">
+              <p>{{to}}</p>
+              <p>{{from}}</p>
+            </div>
+            <div class="experience-details">
+              <h3 class="organisation">{{organisation}}</h3>
+              <p class="location">{{location}}</p>
+              <div class="profile">
+                {{#each profile}}
+                <p class="role">{{role}}</p>
+                {{#each description}}
+                <p class="description">{{this}}</p>
+                {{/each}} {{/each}}
+              </div>
             </div>
           </article>
           {{/each}}

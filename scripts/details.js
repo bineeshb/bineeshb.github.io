@@ -1,3 +1,5 @@
+var months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+
 var skills = {
   master: [],
   expert: [],
@@ -20,18 +22,20 @@ var skills = {
 
 var experienceDetails = [
   {
-    from: "Sep 2007",
-    to: "May 2011",
+    from: "200709",
+    to: "201105",
     organisation: "R.M.K Engineering College",
+    styleClass: "rmk",
     location: "Gummudipondi",
     profile: [
       { role: "Under Graduate", description: ["Electrical and Electronics Engineering"] }
     ]
   },
   {
-    from: "Sep 2011",
-    to: "Dec 2016",
+    from: "201109",
+    to: "201612",
     organisation: "Tata Consultancy Services",
+    styleClass: "tcs",
     location: "Chennai",
     profile: [
       { role: "Web Developer", description: ["For a Banking client"] },
@@ -39,12 +43,13 @@ var experienceDetails = [
     ]
   },
   {
-    from: "Dec 2016",
+    from: "201612",
     to: "Present",
     organisation: "Cognizant Technology Solutions",
+    styleClass: "cts",
     location: "Chennai",
     profile: [
-      { role: "Senior Developer", description: ["For a Pharmaceutical client", "For a Logistics client"] }
+      { role: "Senior Web Developer", description: ["For a Logistics client", "For a Pharmaceutical client"] }
     ]
   }
 ];
