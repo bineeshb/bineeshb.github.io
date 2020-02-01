@@ -1,0 +1,37 @@
+//
+// Home
+//
+
+$homeTitleDividerColor: $colorSecondary;
+
+#home {
+  .container {
+    text-align: left;
+  }
+
+  h1, h2, p {
+    padding-left: 20px;
+  }
+
+  p {
+    margin-top: 10px;
+  }
+}
+
+.intro {
+  font-size: 30px;
+  line-height: 1;
+
+  @media(min-width: $xsMinWidth) {
+    font-size: 35px;
+  }
+
+  @media(min-width: $smMinWidth) {
+    font-size: 40px;
+  }
+}
+
+.job-title {
+  padding-bottom: 15px;
+  border-bottom: 1px dotted $homeTitleDividerColor;
+}

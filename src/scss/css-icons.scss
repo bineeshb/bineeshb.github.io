@@ -1,0 +1,30 @@
+//
+// CSS Icons
+//
+
+$heartSize: 20px;
+
+.heart {
+  position: relative;
+  width: $heartSize;
+
+  &::before, &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    width: $heartSize/2;
+    height: $heartSize;
+    background-color: #000;
+    border-radius: $heartSize/2 $heartSize/2 0 0;
+  }
+
+  &::before {
+    left: 0;
+    transform: rotate(-45deg);
+  }
+
+  &::after {
+    left: $heartSize/2;
+    transform: rotate(45deg);
+  }
+}
