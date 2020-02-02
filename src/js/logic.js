@@ -89,9 +89,22 @@ function getWorks() {
     success: function (repos) {
       if (repos.length > 0) {
         renderWorks(repos);
+      } else {
+        hideWorks();
       }
+    },
+    error: function() {
+      hideWorks();
     }
   });
+}
+
+/**
+ * Hide Works
+ */
+function hideWorks() {
+  $(".works-page").addClass("d-none");
+  $(".link-works").addClass("d-none");
 }
 
 /**
@@ -125,8 +138,8 @@ function renderWorks(repos) {
 
     if (eachRepo.owner.login === githubUsername) {
       ownRepos.repos.push(repoDetails);
-    } else {
-      contributedRepos.repos.push(repoDetails);
+    // } else {
+    //   contributedRepos.repos.push(repoDetails);
     }
   });
 
@@ -136,6 +149,10 @@ function renderWorks(repos) {
 
   if (contributedRepos.repos.length > 0) {
     $contributedWorksSection.html(compiledWorkDetails(contributedRepos));
+  }
+
+  if (ownRepos.repos.length === 0 && contributedRepos.repos.length === 0) {
+    hideWorks();
   }
 }
 

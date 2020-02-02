@@ -6,25 +6,28 @@ $heartSize: 20px;
 
 .heart {
   position: relative;
-  width: $heartSize;
+  display: inline-block;
+  font-size: $heartSize;
+  width: 1.5em;
+  height: 1em;
+  left: 0.5em;
 
   &::before, &::after {
     content: '';
     position: absolute;
     top: 0;
-    width: $heartSize/2;
-    height: $heartSize;
-    background-color: #000;
-    border-radius: $heartSize/2 $heartSize/2 0 0;
+    width: 0.75em;
+    height: 1.1em;
+    background-color: #f00;
+    border-radius: 100% 100% 0 0;
+    transform-origin: 50% 0.75em;
   }
 
   &::before {
-    left: 0;
     transform: rotate(-45deg);
   }
 
   &::after {
-    left: $heartSize/2;
     transform: rotate(45deg);
   }
 }

@@ -7,6 +7,10 @@ html, body {
   background-color: $colorSectionBg;
 }
 
+.d-none {
+  display: none;
+}
+
 //
 // Grid
 //
@@ -27,6 +31,10 @@ html, body {
   height: auto !important;
   min-height: 100%;
   // color: $colorPageBg;
+}
+
+#home, #experience {
+  background-color: #fff;
 }
 
 #contact {
