@@ -9,7 +9,7 @@ $colorSkillText: #fff;
 $colorSkillTextShadow: rgba(0, 0, 0, 0.4);
 $colorSkillShadow: rgba(0, 0, 0, 0.4);
 
-$circleDiaBeginner: 600px;
+$circleDiaBeginner: 800px;
 $circleDiaFamiliar: 0.8 * $circleDiaBeginner;
 $circleDiaProficient: 0.6 * $circleDiaBeginner;
 $circleDiaExpert: 0.4 * $circleDiaBeginner;
@@ -25,18 +25,19 @@ $circleRadius: (
 
 $skills: (
   left: (
-    angular: (f, #dd0031, #c3002f),
+    angular: (p, #dd0031, #c3002f),
     backbone: (f, #0071b5, #002a41),
-    js: (p, #ffc107),
-    jq: (p, #0769ad),
-    ts: (f, #0071b5)
+    js: (e, #ffc107),
+    jq: (e, #0769ad),
+    ts: (p, #0071b5),
+    node: (f, #43853d, #333)
   ),
   right: (
     photoshop: (f, #31c5f0, #0c0824),
-    html: (p, #FF5722),
-    css: (p, #2196F3),
-    scss: (p, #cf649a),
-    bootstrap: (p, #563d7c)
+    html: (e, #FF5722),
+    css: (e, #2196F3),
+    scss: (e, #cf649a),
+    bootstrap: (e, #563d7c)
   )
 );
 
@@ -84,7 +85,10 @@ $startAngle: 70;
   }
 
   @media(min-width: $smMinWidth) {
-    padding-top: 20px;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    padding-bottom: 20px;
     color: $colorLevelHeadingLG;
   }
 }

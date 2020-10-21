@@ -12,14 +12,18 @@ $('body').ready(function () {
   renderSkills();
   renderExperiences();
   getWorks();
-  renderContactDetails();
   renderFooter();
 
   $('nav a').each(function () {
     sectionLinks.push($(this).attr('href'));
   });
 
+  $('.nav-bar #nav-menu-btn').click(function () {
+    $('.nav-bar').toggleClass('open');
+  });
+
   $('a[href*="#"]:not([href="#"])').click(function () {
+    $('.nav-bar').removeClass('open');
     if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
       var target = $(this.hash);
       target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
@@ -95,6 +99,9 @@ function getWorks() {
       if (repos.length > 0) {
         renderWorks(repos);
       }
+    },
+    error: function () {
+      renderWorks(githubWorks);
     }
   });
 }
@@ -145,30 +152,25 @@ function renderWorks(repos) {
   }
 
   if (ownRepos.repos.length > 0 || contributedRepos.repos.length > 0) {
-    $('.works-page').removeClass('d-none');
+    $('.section-works').removeClass('d-none');
     $('.link-works').removeClass('d-none');
   }
-}
-
-/**
- * Render Contact details
- */
-function renderContactDetails() {
-  var $contactSection = $('#contact .cards');
-  var $contactTemplate = $('#contact-template').html();
-  var compiledContactDetails = Handlebars.compile($contactTemplate);
-  $contactSection.html(compiledContactDetails(contactDetails));
 }
 
 /**
  * Render Footer
  */
 function renderFooter() {
-  var $footer = $('footer');
-  var $footerTemplate = $('#footer-template').html();
+  var $footerCopyright = $('.copyright-info');
+  var $footerTemplate = $('#footer-copyright-template').html();
   var compiledFooter = Handlebars.compile($footerTemplate);
   var currentYear = (new Date()).getFullYear();
-  $footer.html(compiledFooter(currentYear));
+  $footerCopyright.html(compiledFooter(currentYear));
+
+  var $footerContact = $('.footer-contact');
+  var $footerContactTemplate = $('#footer-contact-template').html();
+  var compiledFooterContact = Handlebars.compile($footerContactTemplate);
+  $footerContact.html(compiledFooterContact(contactDetails));
 }
 
 function checkIfInView() {
@@ -185,6 +187,7 @@ function checkIfInView() {
 
   if (linkToBeActive) {
     $('nav a[href="' + linkToBeActive + '"]').addClass('active');
+    history.pushState(null, null, linkToBeActive);
   }
 
   sectionLinks.filter(function (linkId) { return linkId !== linkToBeActive })

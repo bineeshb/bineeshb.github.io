@@ -13,17 +13,17 @@
 <body>
   <!-- Navbar -->
   <header>
-    <nav class="navigation">
-      <a href="#home">I am&hellip;</a><!--
+    <nav class="nav-bar">
+      <button id="nav-menu-btn">M</button>
+      <a href="#aboutme">I am&hellip;</a><!--
       --><a href="#skills">I know&hellip;</a><!--
       --><a href="#experience">I have&hellip;</a><!--
-      --><a href="#works" class="link-works d-none">I did&hellip;</a><!--
-      --><a href="#contact">Find me&hellip;</a>
+      --><a href="#works" class="link-works d-none">I did&hellip;</a>
     </nav>
   </header>
 
-  <!-- Home -->
-  <section id="home" class="home-page">
+  <!-- About me -->
+  <section id="aboutme" class="section-aboutme">
     <div class="container">
       <h1 class="intro">Hi!<br> I am Bineesh</h1>
       <h2>Web Developer</h2>
@@ -33,7 +33,7 @@
   </section>
 
   <!-- Skills -->
-  <section id="skills" class="skills-page">
+  <section id="skills" class="section-skills">
     <div class="container">
       <div class="target animation_elements skills-container">
         <script id="skills-template" type="text/x-handlebars-template">
@@ -42,34 +42,34 @@
               <hr>
               <p class="level-heading">Master</p>
               {{#each master}}
-              <p class="arrow {{position}} {{styleClass}}">{{skill}}</p>
+              <p class="arrow {{position}} skill-{{code}}">{{skill}}</p>
               {{/each}}
             </div>
             <div class="circle inner3">
               <hr>
               <p class="level-heading">Expert</p>
               {{#each expert}}
-              <p class="arrow {{position}} {{styleClass}}">{{skill}}</p>
+              <p class="arrow {{position}} skill-{{code}}">{{skill}}</p>
               {{/each}}
             </div>
             <div class="circle inner2">
               <hr>
               <p class="level-heading">Proficient</p>
               {{#each proficient}}
-              <p class="arrow {{position}} {{styleClass}}">{{skill}}</p>
+              <p class="arrow {{position}} skill-{{code}}">{{skill}}</p>
               {{/each}}
             </div>
             <div class="circle inner1">
               <hr>
               <p class="level-heading">Familiar</p>
               {{#each familiar}}
-              <p class="arrow {{position}} {{styleClass}}">{{skill}}</p>
+              <p class="arrow {{position}} skill-{{code}}">{{skill}}</p>
               {{/each}}
             </div>
             <hr>
             <p class="level-heading">Beginner</p>
             {{#each beginner}}
-            <p class="arrow {{position}} {{styleClass}}">{{skill}}</p>
+            <p class="arrow {{position}} skill-{{code}}">{{skill}}</p>
             {{/each}}
           </div>
         </script>
@@ -78,13 +78,13 @@
   </section>
 
   <!-- Experience -->
-  <section id="experience" class="experience-page">
+  <section id="experience" class="section-experience">
     <div class="container">
-      <h1 class="pg-title">I have learned & worked in&hellip;</h1>
+      <h1 class="section-title">I have learned & worked in&hellip;</h1>
       <div class="experience-container">
         <script id="experience-template" type="text/x-handlebars-template">
           {{#each this}}
-          <article class="experience org-{{styleClass}}">
+          <article class="experience org-{{code}}">
             <div class="duration">
               <p>{{to}}</p>
               <p>{{from}}</p>
@@ -108,60 +108,57 @@
   </section>
 
   <!-- My works -->
-  <section id="works" class="works-page d-none">
-    <div class="works-container">
+  <section id="works" class="section-works d-none">
+    <!-- <div class="works-container"> -->
       <div class="container">
         <div class="own-works"></div>
         <div class="contributed-works"></div>
       </div>
       <script id="works-template" type="text/x-handlebars-template">
-        <h1 class="pg-title">
+        <h1 class="section-title">
           {{#if isOwn}}I did{{else}}and contributed in{{/if}}&hellip;
         </h1>
-        {{#each repos}}
-        <article class="works lang-{{language}}">
-          <h2 class="title">{{name}}</h2>
-          <div class="description">
-            <p>{{description}}</p>
-            {{#if topics}}
-            <p>Using: {{#each topics}}<span class="topic">{{this}}</span>{{/each}}</p>
-            {{/if}}
-          </div>
-          <div class="action-container">
-            {{#if homepage}}
-            <a href="{{homepage}}" target="_blank">Visit site</a>
-            {{/if}}
-            <a href="{{repoUrl}}" target="_blank">View code</a>
-          </div>
-        </article>
-        {{/each}}
-      </script>
-    </div>
-  </section>
-
-  <!-- Contact me -->
-  <section id="contact" class="contact-page">
-    <div class="container">
-      <h1 class="pg-title">Find me in&hellip;</h1>
-      <p class="contact-email"><i class="fa fa-envelope" aria-hidden="true"></i><span>bineesh2107@gmail.com</span></p>
-      <div class="cards animation_elements">
-        <script id="contact-template" type="text/x-handlebars-template">
-          {{#each this}}
-          <a href="{{link}}" target="_blank" class="card card_{{counter @index}}">
-            <i class="fa {{iconClass}}" aria-hidden="true"></i>
-            <span class="link-text">{{displayText}}</span>
-          </a>
+        <div class="works-container">
+          {{#each repos}}
+          <article class="works lang-{{language}}">
+            <div>
+              <h2 class="title">{{name}}</h2>
+              <div class="description">
+                <p>{{description}}</p>
+                {{#if topics}}
+                <p>Using: {{#each topics}}<span class="topic">{{this}}</span>{{/each}}</p>
+                {{/if}}
+              </div>
+            </div>
+            <div class="action-container">
+              {{#if homepage}}
+              <a href="{{homepage}}" target="_blank" class="link-visit-site">Visit site</a>
+              {{/if}}
+              <a href="{{repoUrl}}" target="_blank" class="link-view-code">View code</a>
+            </div>
+          </article>
           {{/each}}
-        </script>
-      </div>
-    </div>
+        </div>
+      </script>
+    <!-- </div> -->
   </section>
 
   <!-- Footer -->
   <footer>
-    <script id="footer-template" type="text/x-handlebars-template">
-      <p>&copy; {{this}} Bineesh Balasubramanian</p>
-    </script>
+    <div class="container">
+      <div class="copyright-info">
+        <script id="footer-copyright-template" type="text/x-handlebars-template">
+          <p>&copy; {{this}} Bineesh Balasubramanian</p>
+        </script>
+      </div>
+      <div class="footer-contact">
+        <script id="footer-contact-template" type="text/x-handlebars-template">
+          {{#each this}}
+            <a href="{{link}}" target="_blank" class="link-contact"><i class="fa {{iconClass}}" aria-hidden="true"></i></a>
+          {{/each}}
+        </script>
+      </div>
+    </div>
   </footer>
 
   <!-- Scripts -->
