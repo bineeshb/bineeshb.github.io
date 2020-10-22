@@ -24,23 +24,16 @@ $color-works-lang: (
 $works-links-height: 42px;
 
 
-.works-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-}
-
 .works {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  width: 32%;
+  width: 100%;
   overflow: hidden;
   margin-bottom: 15px;
   color: $color-works-text;
   background-color: $color-works-bg;
   box-shadow: $color-works-shadow;
-  border-radius: 6px 0;
 
   .title {
     background-color: $color-works-title-bg;
@@ -136,5 +129,28 @@ $works-links-height: 42px;
       border-right-color: $color-works-links-bg;
       border-bottom-color: $color-works-links-bg;
     }
+  }
+}
+
+@media(min-width: $smMinWidth) {
+  .works-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
+
+  .works {
+    width: 49%;
+    border-radius: 6px 0;
+  }
+}
+
+@media(min-width: $mdMinWidth) {
+  .works-container {
+    justify-content: space-between;
+  }
+
+  .works {
+    width: 32%;
   }
 }
