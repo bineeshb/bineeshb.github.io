@@ -31,7 +31,25 @@ footer {
     }
   }
 
+  @media(min-width: $smMinWidth) {
+    .copyright-info, .footer-contact {
+      display: inline-block;
+    }
+
+    .copyright-info {
+      text-align: left;
+    }
+
+    .footer-contact {
+      text-align: right;
+    }
+  }
+
   @media(min-width: $smMinWidth) and (max-width: $smMaxWidth) {
+    .copyright-info, .footer-contact {
+      width: 48%;
+    }
+
     .copyright-info {
       margin-left: 15px;
     }
@@ -41,18 +59,9 @@ footer {
     }
   }
 
-  @media(min-width: $smMinWidth) {
+  @media(min-width: $mdMinWidth) {
     .copyright-info, .footer-contact {
-      display: inline-block;
       width: 50%;
-    }
-
-    .copyright-info {
-      text-align: left;
-    }
-
-    .footer-contact {
-      text-align: right;
     }
   }
 }

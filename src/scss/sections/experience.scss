@@ -4,6 +4,7 @@
 
 $color-exp-role: $colorSecondary;
 $color-exp-text: #000;
+$color-exp-border: #eee;
 $color-organisation: (
   cts: #1a237e,
   tcs: #1565c0,
@@ -12,18 +13,13 @@ $color-organisation: (
 
 .experience {
   display: flex;
-  flex-direction: row;
   justify-content: center;
   color: $color-exp-text;
 
   .duration {
-    width: 20%;
     display: flex;
-    flex-direction: column;
     align-items: flex-end;
     justify-content: space-between;
-    padding: 0 15px;
-    border-right: 10px solid black;
     text-transform: uppercase;
 
     p {
@@ -33,9 +29,7 @@ $color-organisation: (
   }
 
   .experience-details {
-    width: 80%;
     text-align: left;
-    padding: 0 15px;
 
     .organisation {
       font-weight: bold;
@@ -82,14 +76,41 @@ $color-organisation: (
   }
 }
 
+@media(max-width: $xsMaxWidth) {
+  .experience {
+    flex-direction: column;
+    margin-left: 10px;
+    margin-right: 10px;
+
+    .duration {
+      flex-direction: row;
+      padding: 5px 15px;
+      border-bottom-width: 5px;
+      border-bottom-style: solid;
+    }
+
+    .experience-details {
+      padding: 10px 15px;
+      border-bottom: 1px solid $color-exp-border;
+    }
+  }
+}
+
 @media(min-width: $smMinWidth) {
   .experience {
+    flex-direction: row;
+
     .duration {
+      flex-direction: column;
       width: 30%;
+      padding: 0 15px;
+      border-right-width: 10px;
+      border-right-style: solid;
     }
 
     .experience-details {
       width: 70%;
+      padding: 0 15px;
     }
   }
 }
