@@ -103,14 +103,6 @@ $sizeSocialIconLG: 50px;
 }
 
 @media(min-width: $smMinWidth) {
-  #contact {
-    min-height: 50%;
-
-    .container {
-      min-height: 100%;
-    }
-  }
-
   .cards {
     text-align: center;
     min-height: $contactCardHeight;
