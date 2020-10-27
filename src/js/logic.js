@@ -49,7 +49,13 @@ function renderSkills() {
   var $skillsSection = $('#skills .skills-container');
   var $skillsTemplate = $('#skills-template').html();
   var compiledSkills = Handlebars.compile($skillsTemplate);
-  $skillsSection.html(compiledSkills(skills));
+  var displaySkills = Object.keys(skills).map(function (level) {
+    return {
+      skillLevel: level,
+      technologies: skills[level]
+    };
+  });
+  $skillsSection.html(compiledSkills(displaySkills));
 }
 
 /** 
@@ -99,9 +105,6 @@ function getWorks() {
       if (repos.length > 0) {
         renderWorks(repos);
       }
-    },
-    error: function () {
-      renderWorks(githubWorks);
     }
   });
 }
