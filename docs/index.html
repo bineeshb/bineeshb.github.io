@@ -1,0 +1,51 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Bineesh's Portfolio</title><link href="https://fonts.googleapis.com/css?family=Roboto:400,400i,700" rel="stylesheet"><link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css"><link rel="stylesheet" type="text/css" href="styles.css"></head><body><header><nav class="nav-bar"><button id="nav-menu-btn"><span class="icon-hamburger"></span> <span class="icon-close"></span></button> <a href="#aboutme">I am&hellip;</a><a href="#skills">I know&hellip;</a><a href="#experience">I have&hellip;</a><a href="#works" class="link-works d-none">I did&hellip;</a></nav></header><section id="aboutme" class="section-aboutme"><div class="container"><h1 class="intro">Hi!<br>I am Bineesh</h1><h2 class="designation">Web Developer</h2><p class="location">from Chennai, Tamil Nadu, India</p><p>Passionate about building quality websites and web applications. Have worked with Customers in Telecom, Banking, Life Sciences and Logistics domains.</p></div></section><section id="skills" class="section-skills"><div class="container"><div class="animation_elements skills-container"><script id="skills-template" type="text/x-handlebars-template">{{#each this}}
+          <div class="level-wrapper level-{{counter @index}} level-{{skillLevel}}">
+            <h4 class="level-heading">{{skillLevel}}</h4>
+            {{#each technologies}}
+            <p class="skill {{position}} skill-{{code}}">{{skill}}</p>
+            {{/each}}
+          </div>
+          {{/each}}</script></div></div></section><section id="experience" class="section-experience"><div class="container"><h1 class="section-title">I have learned & worked in&hellip;</h1><div class="experience-container"><script id="experience-template" type="text/x-handlebars-template">{{#each this}}
+          <article class="experience org-{{code}}">
+            <div class="duration">
+              <p>{{to}}</p>
+              <p>{{from}}</p>
+            </div>
+            <div class="experience-details">
+              <h3 class="organisation">{{organisation}}</h3>
+              <p class="location">{{location}}</p>
+              <div class="profile">
+                {{#each profile}}
+                <p class="role">{{role}}</p>
+                {{#each description}}
+                <p class="description">{{this}}</p>
+                {{/each}} {{/each}}
+              </div>
+            </div>
+          </article>
+          {{/each}}</script></div></div></section><section id="works" class="section-works d-none"><div class="container"><div class="own-works"></div><div class="contributed-works"></div></div><script id="works-template" type="text/x-handlebars-template"><h1 class="section-title">
+        {{#if isOwn}}I did{{else}}and contributed in{{/if}}&hellip;
+      </h1>
+      <div class="works-container">
+        {{#each repos}}
+        <article class="works lang-{{language}}">
+          <div>
+            <h3 class="title">{{name}}</h3>
+            <div class="description">
+              <p>{{description}}</p>
+              {{#if topics}}
+              <p>Using: {{#each topics}}<span class="topic">{{this}}</span>{{/each}}</p>
+              {{/if}}
+            </div>
+          </div>
+          <div class="action-container">
+            {{#if homepage}}
+            <a href="{{homepage}}" target="_blank" class="link-visit-site">Visit site</a>
+            {{/if}}
+            <a href="{{repoUrl}}" target="_blank" class="link-view-code">View code</a>
+          </div>
+        </article>
+        {{/each}}
+      </div></script></section><footer><div class="container"><div class="copyright-info"><script id="footer-copyright-template" type="text/x-handlebars-template"><p>&copy; {{this}} Bineesh Balasubramanian</p></script></div><div class="footer-contact"><script id="footer-contact-template" type="text/x-handlebars-template">{{#each this}}
+            <a href="{{link}}" target="_blank" class="link-contact"><i class="fa {{iconClass}}" aria-hidden="true"></i></a>
+          {{/each}}</script></div></div></footer><script src="scripts.js"></script></body></html>

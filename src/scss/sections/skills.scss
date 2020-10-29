@@ -1,0 +1,294 @@
+//
+// Skills
+//
+
+$circleDiaBeginner: 800px;
+$circleDiaFamiliar: 0.8 * $circleDiaBeginner;
+$circleDiaProficient: 0.6 * $circleDiaBeginner;
+$circleDiaExpert: 0.4 * $circleDiaBeginner;
+$circleDiaMaster: 0.2 * $circleDiaBeginner;
+
+$circleRadius: (
+  b: $circleDiaBeginner/2,
+  f: $circleDiaFamiliar/2,
+  p: $circleDiaProficient/2,
+  e: $circleDiaExpert/2,
+  m: $circleDiaMaster/2
+);
+
+$startAngle: 50;
+
+$colorTarget: $colorSecondary;
+$colorLevelHeading: #fff;
+$colorLevelHeadingLG: #3b3b3b;
+$colorSkillText: #fff;
+$colorSkillTextShadow: rgba(0, 0, 0, 0.4);
+$colorSkillShadow: rgba(0, 0, 0, 0.4);
+
+$skills: (
+  left: (
+    backbone: (f, #0071b5, #002a41),
+    angular: (p, #dd0031, #c3002f),
+    js: (e, #ffc107),
+    jq: (e, #0769ad),
+    ts: (p, #0071b5),
+    node: (f, #43853d, #333),
+    react: (f, #61dafb, #282c34)
+  ),
+  right: (
+    html: (e, #FF5722),
+    css: (e, #2196F3),
+    scss: (e, #cf649a),
+    bootstrap: (e, #563d7c),
+    photoshop: (f, #31c5f0, #0c0824)
+  )
+);
+
+$bgColorLevels: (
+  master: #F5F5F5,
+  expert: #E0E0E0,
+  proficient: #BDBDBD,
+  familiar: #9E9E9E,
+  beginner: #757575
+);
+
+
+@function getSkillBackground($values, $side) {
+  $background: nth($values, 2);
+
+  @if (length($values) == 3) {
+    $colorA: nth($values, 2);
+    $colorB: nth($values, 3);
+
+    @if ($side == "right") {
+      $colorA: nth($values, 3);
+      $colorB: nth($values, 2);
+    }
+
+    $background: linear-gradient(135deg, $colorA 50%, $colorB 50%);
+  }
+
+  @return $background;
+}
+
+@function getSkillParams($side, $numOfSkills, $index, $values) {
+  $distance: (map-get($circleRadius, nth($values, 1)) - 30);
+  $angle: $startAngle - ((140 / $numOfSkills) * $index);
+  $animationDelay: $index * 0.5s;
+
+  @if ($side == "left") {
+    $distance: -$distance;
+  } @else if ($side == "right") {
+    $angle: -$angle;
+    $animationDelay: ($index + length(map-get($skills, "left"))) * 0.5s;
+  }
+
+  @return (
+    distance: $distance,
+    angle: $angle,
+    animationDelay: $animationDelay
+  );
+}
+
+/// Mixin for target circles
+@mixin levelCircle($index, $position, $area) {
+  .level-#{$index} {
+    position: absolute;
+    top: $position;
+    left: $position;
+    width: $area;
+    height: $area;
+    z-index: 5 - $index;
+  }
+}
+
+/// Mixin for arrows
+@mixin arrow($side, $oppSide, $animationName) {
+  &.#{$side} {
+    @if($side == "left") {
+      margin-left: -134px;
+      transform-origin: 100% 50%;
+    }
+
+    @if($side == "right") {
+      transform-origin: 0% 50%;
+    }
+
+    @include prefixProp(( animation-name: $animationName,
+    animation-duration: 1s,
+    animation-timing-function: ease-out,
+    animation-fill-mode: forwards), webkit moz o);
+
+    &:after {
+      border-bottom-width: 15px;
+      border-bottom-style: solid;
+      border-#{$side}: 15px solid transparent;
+      border-top-width: 15px;
+      border-top-style: solid;
+      #{$side}: -14px;
+    }
+
+    &:before {
+      border-bottom: 25px solid transparent;
+      border-#{$side}-width: 30px;
+      border-#{$side}-style: solid;
+      border-top: 25px solid transparent;
+      #{$oppSide}: -25px;
+      top: -9px;
+    }
+  }
+}
+
+.skills-container {
+  position: relative;
+  font-weight: 700;
+  overflow: hidden;
+}
+
+@each $level, $bgColor in $bgColorLevels {
+  .level-#{$level} {
+    background-color: $bgColor;
+  }
+}
+
+.level-heading {
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.skill {
+  color: $colorSkillText;
+  display: inline-block;
+  height: 30px;
+  line-height: 30px;
+  padding: 0 12px;
+  text-align: center;
+  text-shadow: 0px 0px 5px $colorSkillTextShadow;
+}
+
+@each $side, $list in $skills {
+  @each $key, $values in $list {
+    .skill-#{$key} {
+      background: getSkillBackground($values, $side);
+    }
+  }
+}
+
+@media(max-width: $xsMaxWidth) {
+  .skills-container {
+    border-top: 1px solid map-get($bgColorLevels, 'expert');
+  }
+
+  .level-wrapper {
+    text-align: center;
+    padding-bottom: 20px;
+  }
+
+  .level-heading {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin: 0 auto 10px;
+  }
+
+  .skill {
+    margin: 5px;
+    border-radius: 2px;
+  }
+}
+
+@media(min-width: $smMinWidth) {
+  .skills-container {
+    margin-left: auto;
+    margin-right: auto;
+    width: $circleDiaBeginner;
+    height: $circleDiaBeginner;
+  }
+
+  .level-wrapper {
+    border-radius: 50%;
+  }
+
+  @include levelCircle(1, 40%, 20%);
+  @include levelCircle(2, 30%, 40%);
+  @include levelCircle(3, 20%, 60%);
+  @include levelCircle(4, 10%, 80%);
+  @include levelCircle(5, 0, 100%);
+
+  .level-heading {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    padding-bottom: 20px;
+    color: $colorLevelHeadingLG;
+  }
+
+  @include keyframes(slideleft) {
+    from {
+      margin-left: 100%;
+    }
+    to {
+      visibility: visible;
+    }
+  }
+
+  @include keyframes(slideright) {
+    from {
+      margin-left: -100%;
+    }
+    to {
+      visibility: visible;
+    }
+  }
+
+  .skill {
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -15px;
+    width: 110px;
+    @include prefixProp((box-shadow: 2px 2px 2px $colorSkillShadow), webkit moz o);
+    visibility: hidden;
+
+    &:before,
+    &:after {
+      content: "";
+      height: 0;
+      position: absolute;
+      width: 0;
+    }
+
+    @include arrow(right, left, slideleft);
+    @include arrow(left, right, slideright);
+  }
+
+  @each $side, $list in $skills {
+    $numOfSkills: length(map-get($skills, $side));
+  
+    @each $skill, $values in $list {
+      $index: index($list, ($skill $values)) - 1;
+      $skillColor: nth($values, 2);
+      $skillParams: getSkillParams($side, $numOfSkills, $index, $values);
+
+      $distance: map-get($skillParams, 'distance');
+      $angle: map-get($skillParams, 'angle');
+      $animationDelay: map-get($skillParams, 'animationDelay');
+  
+      .skill-#{$skill} {
+        transform: rotate(#{$angle}deg) translate($distance) rotate(#{-$angle}deg);
+        @include prefixProp((animation-delay: $animationDelay), webkit moz o);
+
+        &.#{$side} {
+          &:after {
+            border-bottom-color: $skillColor;
+            border-top-color: $skillColor;
+          }
+
+          &:before {
+            border-#{$side}-color: if(length($values)==3, nth($values, 3), $skillColor);
+          }
+        }
+      }
+    }
+  }
+}

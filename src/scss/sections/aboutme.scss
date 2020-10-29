@@ -1,0 +1,39 @@
+//
+// Home
+//
+
+$homeTitleDividerColor: $colorSecondary;
+
+#aboutme {
+  .container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: left;
+  }
+
+  h1, h2 {
+    padding-left: 20px;
+  }
+
+  p {
+    font-size: 1.125rem;
+    padding: 20px;
+  }
+}
+
+.intro {
+  font-size: 3.125rem;
+  font-weight: 700;
+  line-height: 1;
+  text-shadow: 4px 4px rgba(0, 0, 0, 0.5);
+}
+
+.designation {
+  font-size: 1.5rem;
+}
+
+.location {
+  border-bottom: 1px dotted #fff;
+}

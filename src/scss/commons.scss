@@ -1,0 +1,104 @@
+body {
+  font: 400 16px/22px Roboto, "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+html, body {
+  height: 100%;
+  background-color: $colorSectionBg;
+}
+
+.d-none {
+  display: none;
+}
+
+//
+// Grid
+//
+
+.container {
+  width: 100%;
+  margin: 0 auto;
+  padding: 20px 0;
+}
+
+#aboutme, #skills, #experience, #works {
+  padding-top: $navBarHeight;
+  position: relative;
+  height: auto !important;
+  min-height: 100%;
+}
+
+#works {
+  z-index: 2;
+}
+
+#experience {
+  background-color: #fff;
+  z-index: 3;
+}
+
+#skills {
+  z-index: 4;
+}
+
+#aboutme {
+  background-color: $colorPrimary;
+  color: #fff;
+  z-index: 5;
+}
+
+//
+// Typography
+//
+
+h1 {
+  margin-top: 22px;
+  margin-bottom: 12px;
+  font-size: 2.25rem;
+}
+
+h2 {
+  font-size: 1.56rem;
+}
+
+h3 {
+  font-size: 1.25rem;
+}
+
+ul {
+  margin-bottom: 10px;
+}
+
+li {
+  font-weight: 600;
+}
+
+.section-title {
+  color: $colorPageTitle;
+  margin-bottom: 40px;
+  font-size: 1.875rem;
+  font-style: italic;
+  text-align: center;
+  line-height: 1;
+}
+
+.animation_elements * {
+  @include prefixProp((animation: none 0 !important), webkit moz o);
+}
+
+@media(min-width: $xsMinWidth) {
+  .section-title {
+    font-size: 3.125rem;
+  }
+}
+
+@media(min-width: $mdMinWidth) {
+  .container {
+    width: 960px;
+  }
+
+  .section-title {
+    font-size: 3.75rem;
+    text-align: left;
+  }
+}

@@ -1,0 +1,67 @@
+//
+// Footer
+//
+
+$colorFooterBg: #2c3e50;
+$colorFooterText: #fff;
+
+footer {
+  display: block;
+  background-color: $colorFooterBg;
+
+  p, .link-contact {
+    color: $colorFooterText;
+  }
+
+  .link-contact {
+    font-size: 1.5rem;
+
+    + .link-contact {
+      margin-left: 15px;
+    }
+  }
+  
+  .copyright-info, .footer-contact {
+    text-align: center;
+  }
+
+  @media(max-width: $xsMaxWidth) {
+    .footer-contact {
+      margin-top: 15px;
+    }
+  }
+
+  @media(min-width: $smMinWidth) {
+    .copyright-info, .footer-contact {
+      display: inline-block;
+    }
+
+    .copyright-info {
+      text-align: left;
+    }
+
+    .footer-contact {
+      text-align: right;
+    }
+  }
+
+  @media(min-width: $smMinWidth) and (max-width: $smMaxWidth) {
+    .copyright-info, .footer-contact {
+      width: 48%;
+    }
+
+    .copyright-info {
+      margin-left: 15px;
+    }
+
+    .footer-contact {
+      margin-right: 15px;
+    }
+  }
+
+  @media(min-width: $mdMinWidth) {
+    .copyright-info, .footer-contact {
+      width: 50%;
+    }
+  }
+}

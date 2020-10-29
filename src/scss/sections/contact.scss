@@ -1,6 +1,7 @@
-/*
-* Contact
-*/
+//
+// Contact
+//
+
 $colorContactBorderXS: #e3e3e3;
 $colorContactIconXS: #fff;
 $colorContactBgXS: #fff;
@@ -105,6 +106,9 @@ $sizeSocialIconLG: 50px;
   .cards {
     text-align: center;
     min-height: $contactCardHeight;
+    position: absolute;
+    left: 50%;
+    bottom: 10px;
   }
 
   .contact-email,

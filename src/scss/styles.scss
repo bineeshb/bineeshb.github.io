@@ -1,0 +1,21 @@
+// Utils
+@import 'globals';
+@import 'mixins';
+@import 'libs/reset';
+@import 'css-icons';
+
+// Common styles
+@import 'commons';
+
+// Navbar
+@import 'components/navbar';
+
+// Sections
+@import 'sections/aboutme';
+@import 'sections/skills';
+@import 'sections/experience';
+@import 'sections/works';
+@import 'sections/contact';
+
+// Footer
+@import 'components/footer';
