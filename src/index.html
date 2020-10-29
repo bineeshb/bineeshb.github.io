@@ -39,7 +39,7 @@
         <script id="skills-template" type="text/x-handlebars-template">
           {{#each this}}
           <div class="level-wrapper level-{{counter @index}} level-{{skillLevel}}">
-            <p class="level-heading">{{skillLevel}}</p>
+            <h4 class="level-heading">{{skillLevel}}</h4>
             {{#each technologies}}
             <p class="skill {{position}} skill-{{code}}">{{skill}}</p>
             {{/each}}

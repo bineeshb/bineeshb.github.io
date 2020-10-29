@@ -1,6 +1,6 @@
 <!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Bineesh's Portfolio</title><link href="https://fonts.googleapis.com/css?family=Roboto:400,400i,700" rel="stylesheet"><link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css"><link rel="stylesheet" type="text/css" href="styles.css"></head><body><header><nav class="nav-bar"><button id="nav-menu-btn">M</button> <a href="#aboutme">I am&hellip;</a><a href="#skills">I know&hellip;</a><a href="#experience">I have&hellip;</a><a href="#works" class="link-works d-none">I did&hellip;</a></nav></header><section id="aboutme" class="section-aboutme"><div class="container"><h1 class="intro">Hi!<br>I am Bineesh</h1><h2>Web Developer</h2><p class="job-title">from Chennai, Tamil Nadu, India</p><p>Passionate about building quality websites and web applications. Have worked with Customers in Telecom, Banking, Life Sciences and Logistics domains.</p></div></section><section id="skills" class="section-skills"><div class="container"><div class="animation_elements skills-container"><script id="skills-template" type="text/x-handlebars-template">{{#each this}}
           <div class="level-wrapper level-{{counter @index}} level-{{skillLevel}}">
-            <p class="level-heading">{{skillLevel}}</p>
+            <h4 class="level-heading">{{skillLevel}}</h4>
             {{#each technologies}}
             <p class="skill {{position}} skill-{{code}}">{{skill}}</p>
             {{/each}}
