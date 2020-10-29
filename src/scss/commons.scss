@@ -22,7 +22,7 @@ html, body {
 }
 
 #aboutme, #skills, #experience, #works {
-  padding-top: 60px;
+  padding-top: $navBarHeight;
   position: relative;
   height: auto !important;
   min-height: 100%;
@@ -54,16 +54,15 @@ html, body {
 h1 {
   margin-top: 22px;
   margin-bottom: 12px;
-  font-size: 36px;
+  font-size: 2.25rem;
 }
 
 h2 {
-  font-size: 18px;
+  font-size: 1.56rem;
 }
 
 h3 {
-  font-size: 20px;
-  text-transform: uppercase;
+  font-size: 1.25rem;
 }
 
 ul {
@@ -77,7 +76,7 @@ li {
 .section-title {
   color: $colorPageTitle;
   margin-bottom: 40px;
-  font-size: 30px;
+  font-size: 1.875rem;
   font-style: italic;
   text-align: center;
   line-height: 1;
@@ -88,21 +87,8 @@ li {
 }
 
 @media(min-width: $xsMinWidth) {
-  h2 {
-    font-size: 22px;
-  }
-
   .section-title {
-    font-size: 50px;
-  }
-}
-
-@media(max-width: $xsMaxWidth) {
-  #aboutme, #skills {
-    h1, h2 {
-      margin-left: 10px;
-      margin-right: 10px;
-    }
+    font-size: 3.125rem;
   }
 }
 
@@ -112,7 +98,7 @@ li {
   }
 
   .section-title {
-    font-size: 60px;
+    font-size: 3.75rem;
     text-align: left;
   }
 }

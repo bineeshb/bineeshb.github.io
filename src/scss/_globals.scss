@@ -1,4 +1,13 @@
 //
+//  Breakpoints
+//
+$xsMinWidth: 480px;
+$xsMaxWidth: 767px;
+$smMinWidth: 768px;
+$smMaxWidth: 991px;
+$mdMinWidth: 992px;
+
+//
 //  Colors
 //
 $colorPrimary: #006064;
@@ -11,10 +20,6 @@ $colorPageTitle: $colorSecondary;
 $colorPageBg: #ecf0f1;
 
 //
-//  Breakpoints
+//  Dimensions
 //
-$xsMinWidth: 480px;
-$xsMaxWidth: 767px;
-$smMinWidth: 768px;
-$smMaxWidth: 991px;
-$mdMinWidth: 992px;
+$navBarHeight: 60px;

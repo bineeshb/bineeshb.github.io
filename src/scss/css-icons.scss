@@ -2,19 +2,75 @@
 // CSS Icons
 //
 
+$closeSize: 20px;
+$closeLineThickness: 2px;
+$closeColor: #fff;
+
+$hamburgerSize: 20px;
+$hamburgerLineThickness: 2px;
+$hamburgerColor: #fff;
+
 $heartSize: 20px;
 
-.heart {
+
+@mixin iconBase($iconSize) {
   position: relative;
   display: inline-block;
-  font-size: $heartSize;
+  font-size: $iconSize;
+}
+
+@mixin pseudoContent() {
+  content: '';
+  position: absolute;
+}
+
+
+.icon-close {
+  @include iconBase($closeSize);
+  width: 1.25em;
+  height: 1.25em;
+
+  &::before, &::after {
+    @include pseudoContent();
+    top: calc(50% - #{$closeLineThickness / 2});
+    left: 0;
+    width: 100%;
+    border-top: $closeLineThickness solid $closeColor;
+  }
+
+  &::before {
+    transform: rotate(-45deg);
+  }
+
+  &::after {
+    transform: rotate(45deg);
+  }
+}
+
+.icon-hamburger {
+  @include iconBase($hamburgerSize);
+  width: 1.5em;
+  height: 1em;
+  border-top: $hamburgerLineThickness solid $hamburgerColor;
+  border-bottom: $hamburgerLineThickness solid $hamburgerColor;
+
+  &::after {
+    @include pseudoContent();
+    top: calc(50% - #{$hamburgerLineThickness / 2});
+    left: 0;
+    width: 100%;
+    border-top: $hamburgerLineThickness solid $hamburgerColor;
+  }
+}
+
+.icon-heart {
+  @include iconBase($heartSize);
   width: 1.5em;
   height: 1em;
   left: 0.5em;
 
   &::before, &::after {
-    content: '';
-    position: absolute;
+    @include pseudoContent();
     top: 0;
     width: 0.75em;
     height: 1.1em;

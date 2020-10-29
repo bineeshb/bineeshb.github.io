@@ -2,8 +2,6 @@
 // Navbar
 //
 
-$navBarHeight: 60px;
-
 header {
   background-color: $colorNavBg;
   position: fixed;
@@ -34,6 +32,18 @@ header {
       position: absolute;
       top: 20px;
       left: 20px;
+      background: none;
+      border: none;
+      outline: none;
+      padding: 0;
+
+      .icon-hamburger {
+        display: inline-block;
+      }
+
+      .icon-close {
+        display: none;
+      }
     }
 
     a {
@@ -43,9 +53,25 @@ header {
         display: block
       }
     }
+  }
 
-    &.open a:not(.d-none) {
+  .nav-bar.open {
+    #nav-menu-btn {
+      .icon-hamburger {
+        display: none;
+      }
+
+      .icon-close {
+        display: inline-block;
+      }
+    }
+
+    a:not(.d-none) {
       display: block;
+    }
+
+    a + a {
+      border-top: 1px solid #757575;
     }
   }
 }
