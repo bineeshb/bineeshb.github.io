@@ -174,7 +174,7 @@ $bgColorLevels: (
   }
 }
 
-@media(max-width: $xsMaxWidth) {
+@media(max-width: $mdMinWidth) {
   .skills-container {
     border-top: 1px solid map-get($bgColorLevels, 'expert');
   }
@@ -196,7 +196,7 @@ $bgColorLevels: (
   }
 }
 
-@media(min-width: $smMinWidth) {
+@media(min-width: $mdMinWidth) {
   .skills-container {
     margin-left: auto;
     margin-right: auto;

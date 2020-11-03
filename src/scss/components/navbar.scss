@@ -2,6 +2,8 @@
 // Navbar
 //
 
+$colorMenuSeparator: #757575;
+
 header {
   background-color: $colorNavBg;
   position: fixed;
@@ -26,7 +28,7 @@ header {
   }
 }
 
-@media (max-width: 479px) {
+@media (max-width: $smMinWidth) {
   .nav-bar {
     #nav-menu-btn {
       position: absolute;
@@ -71,12 +73,12 @@ header {
     }
 
     a + a {
-      border-top: 1px solid #757575;
+      border-top: 1px solid $colorMenuSeparator;
     }
   }
 }
 
-@media(min-width: $xsMinWidth) {
+@media(min-width: $smMinWidth) {
   .nav-bar {
     #nav-menu-btn {
       display: none;

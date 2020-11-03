@@ -77,14 +77,14 @@ $color-organisation: (
   }
 }
 
-@media(max-width: $xsMaxWidth) {
+@media(max-width: $smMinWidth) {
   .experience {
     flex-direction: column;
     margin-left: 10px;
     margin-right: 10px;
 
     .duration {
-      flex-direction: row;
+      flex-direction: row-reverse;
       padding: 5px 15px;
       border-bottom-width: 5px;
       border-bottom-style: solid;

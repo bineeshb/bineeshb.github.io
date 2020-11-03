@@ -63,7 +63,7 @@ $sizeSocialIconLG: 50px;
   }
 }
 
-@media(max-width: $xsMaxWidth) {
+@media(max-width: $smMinWidth) {
   .cards {
     .fa {
       padding: 15px;

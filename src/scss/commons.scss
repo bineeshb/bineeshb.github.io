@@ -86,7 +86,7 @@ li {
   @include prefixProp((animation: none 0 !important), webkit moz o);
 }
 
-@media(min-width: $xsMinWidth) {
+@media(min-width: $smMinWidth) {
   .section-title {
     font-size: 3.125rem;
   }

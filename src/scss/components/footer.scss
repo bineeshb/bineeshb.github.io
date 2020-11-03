@@ -25,7 +25,7 @@ footer {
     text-align: center;
   }
 
-  @media(max-width: $xsMaxWidth) {
+  @media(max-width: $smMinWidth) {
     .footer-contact {
       margin-top: 15px;
     }
@@ -45,9 +45,9 @@ footer {
     }
   }
 
-  @media(min-width: $smMinWidth) and (max-width: $smMaxWidth) {
+  @media (min-width: $smMinWidth) and (max-width: $lgMinWidth) {
     .copyright-info, .footer-contact {
-      width: 48%;
+      width: 47%;
     }
 
     .copyright-info {
@@ -59,7 +59,7 @@ footer {
     }
   }
 
-  @media(min-width: $mdMinWidth) {
+  @media(min-width: $lgMinWidth) {
     .copyright-info, .footer-contact {
       width: 50%;
     }
